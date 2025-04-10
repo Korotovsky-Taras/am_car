@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+
+        <title>ui</title>
+      <script type="module" crossorigin src="./build/chunks/app.js"></script>
+      <link rel="stylesheet" crossorigin href="./assets/app-BXdLEuYG.css">
+      <link rel="stylesheet" crossorigin href="./assets/ui-C9EdE7OO.css">
+    </head>
+<body class="">
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="app-container-holder">
+                <div class="app-container">
+                    <div class="app-header__wrapper app-desktop-visible">
+                        <a class="app-header__logo --start" href="/">
+                            <svg width="148" height="43">
+                                <use xlink:href="./app-sprite.svg#logo"></use>
+                            </svg>
+                        </a>
+                        <div class="app-header__top-menu">
+                            <nav class="app-header__nav">
+                                <a class="app-header__nav-link" href="#">
+                                    <span>Instagram</span>
+                                </a>
+                                <a class="app-header__nav-link" href="#">
+                                    <span>Telegram</span>
+                                </a>
+                                <a class="app-header__nav-link" href="#">
+                                    <span>О компании</span>
+                                </a>
+                                <a class="app-header__nav-link" href="#">
+                                    <span>Контакты</span>
+                                </a>
+                            </nav>
+                            <a href="#" class="app-btn ml-4 btn-secondary btn-size-s"><span>Заказать звонок</span></a>
+                        </div>
+                        <nav class="app-header__bottom-menu app-header__nav">
+                            <a class="app-header__nav-link active" href="#">
+                                <span>Авто в наличии</span>
+                            </a>
+                            <a class="app-header__nav-link" href="#">
+                                <span>Авто в пути</span>
+                            </a>
+                            <a class="app-header__nav-link" href="#">
+                                <span>Авто из Европы</span>
+                            </a>
+                            <a class="app-header__nav-link" href="#">
+                                <span>Авто из США</span>
+                            </a>
+                            <a class="app-header__nav-link --end" href="#">
+                                <span>Оценить авто</span>
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="app-header-mobile app-header__wrapper app-mobile-visible">
+                        <a class="app-header__menu app-header__icon" href="/">
+                            <svg width="24" height="24">
+                                <use xlink:href="./app-sprite.svg#menu"></use>
+                            </svg>
+                        </a>
+                        <a class="app-header__logo" href="/">
+                            <svg width="120" height="30">
+                                <use xlink:href="./app-sprite.svg#logo"></use>
+                            </svg>
+                        </a>
+                        <a class="app-header__phone app-header__icon" href="/">
+                            <svg width="24" height="24">
+                                <use xlink:href="./app-sprite.svg#phone"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>        <main>
+            
+                <div class="app-container-holder app-h-gap">
+            
+                    <div class="app-container">
+            
+                        <div class="ui-selects app-section--mt">
+                            <div class="app-select app-select--with-placeholder" style="min-width: 300px">
+                                <div class="app-select__view">Привод</div>
+                                <div class="app-select__placeholder">Как с вами связаться?</div>
+                                <select>
+                                    <option value="placeholder">Выберите тип привода</option>
+                                    <option value="1">Вайбер</option>
+                                    <option value="2">Телеграм</option>
+                                    <option value="3">Телефон</option>
+                                </select>
+                            </div>
+                            <div class="app-select app-select--with-placeholder" style="min-width: 300px; max-width: 500px">
+                                <div class="app-select__view">Выберите марку авто</div>
+                                <div class="app-select__placeholder">Выберите марку авто</div>
+                                <select data-multichoice="true">
+                                    <option value="placeholder">Выберите марку авто</option>
+                                    <optgroup label="BMW">
+                                        <option value="bmw1">3 серия</option>
+                                        <option value="bmw2">4 серия</option>
+                                        <option value="bmw3">5 серия</option>
+                                        <option value="bmw4">7 серия</option>
+                                    </optgroup>
+                                    <optgroup label="Tesla">
+                                        <option value="tesla1">Model S</option>
+                                        <option value="tesla2">Model 3</option>
+                                        <option value="tesla3">Model X</option>
+                                        <option value="tesla4">Model Y</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="app-select app-select--with-count">
+                                <div class="app-select__view">Привод</div>
+                                <select>
+                                    <option value="placeholder">Выберите тип привода</option>
+                                    <option value="1">Передний</option>
+                                    <option value="2">Задний</option>
+                                    <option value="3">Полный</option>
+                                    <option value="4">Подключаемый полный</option>
+                                    <option value="5">Парт-тайм</option>
+                                </select>
+                            </div>
+                            <div class="app-select app-select--with-count">
+                                <div class="app-select__view">Марка</div>
+                                <select data-multichoice="true" data-change-view="false">
+                                    <option value="placeholder">Выберите марку авто</option>
+                                    <option value="bmw1">3 серия</option>
+                                    <option value="bmw2">4 серия</option>
+                                    <option value="bmw3">5 серия</option>
+                                    <option value="bmw4">7 серия</option>
+                                </select>
+                            </div>
+                            <div class="app-select app-select--with-count">
+                                <div class="app-select__view">Марка</div>
+                                <select data-multichoice="true" data-change-view="false">
+                                    <option value="placeholder">Выберите марку авто</option>
+                                    <optgroup label="BMW">
+                                        <option value="bmw1">3 серия</option>
+                                        <option value="bmw2">4 серия</option>
+                                        <option value="bmw3">5 серия</option>
+                                        <option value="bmw4">7 серия</option>
+                                    </optgroup>
+                                    <optgroup label="Tesla">
+                                        <option value="tesla1">Model S</option>
+                                        <option value="tesla2">Model 3</option>
+                                        <option value="tesla3">Model X</option>
+                                        <option value="tesla4">Model Y</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="app-select app-select--with-count">
+                                <div class="app-select__view">Марка</div>
+                                <select data-multichoice="true">
+                                    <option value="placeholder">Выберите марку авто</option>
+                                    <optgroup label="BMW">
+                                        <option value="bmw1">3 серия</option>
+                                        <option value="bmw2">4 серия</option>
+                                        <option value="bmw3">5 серия</option>
+                                        <option value="bmw4">7 серия</option>
+                                    </optgroup>
+                                    <optgroup label="Tesla">
+                                        <option value="tesla1">Model S</option>
+                                        <option value="tesla2">Model 3</option>
+                                        <option value="tesla3">Model X</option>
+                                        <option value="tesla4">Model Y</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="app-select">
+                                <div class="app-select__view">Тип привода</div>
+                                <select data-change-view="false">
+                                    <option value="placeholder">Выберите тип привода</option>
+                                    <option value="1">Передний</option>
+                                    <option value="2">Задний</option>
+                                    <option value="3">Полный</option>
+                                    <option value="4">Подключаемый</option>
+                                    <option value="5">Парт-тайм</option>
+                                </select>
+                            </div>
+                        </div>
+            
+                        <div class="ui-buttons app-section--mt">
+                            <button class="app-btn btn-slider btn-size-xl">
+                                <span>
+                                    <svg width="9" height="24">
+                                        <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <button class="app-btn btn-primary btn-size-m">
+                                <span>Выбрать авто</span>
+                                <svg width="9" height="24">
+                                    <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                                </svg>
+                            </button>
+                            <button class="app-btn btn-secondary btn-size-m"><span>Выбрать авто</span></button>
+            
+                            <button class="app-btn btn-slider btn-size-m btn-slider-disabled">
+                                <span>
+                                    <svg width="9" height="24">
+                                        <use xlink:href="./app-sprite.svg#arrow-left"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <button class="app-btn btn-slider btn-size-m">
+                                <span>
+                                    <svg width="9" height="24">
+                                        <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+            
+                        <div class="ui-icons  app-section--mt">
+                            <svg width="148" height="43">
+                                <use xlink:href="./app-sprite.svg#logo"></use>
+                            </svg>
+                        </div>
+                        <div class="ui-icons  app-section--mt">
+                            <svg width="12" height="18">
+                                <use xlink:href="./app-sprite.svg#check-sm"></use>
+                            </svg>
+                            <svg width="14" height="18">
+                                <use xlink:href="./app-sprite.svg#check-circle-sm"></use>
+                            </svg>
+                            <svg width="10" height="18">
+                                <use xlink:href="./app-sprite.svg#close-sm"></use>
+                            </svg>
+                        </div>
+                        <div class="ui-icons  app-section--mt">
+                            <svg width="17" height="24">
+                                <use xlink:href="./app-sprite.svg#pin"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#whats-app"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#viber"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#telegram"></use>
+                            </svg>
+                            <svg width="14" height="24">
+                                <use xlink:href="./app-sprite.svg#close"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#clock"></use>
+                            </svg>
+                            <svg width="16" height="24">
+                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                            </svg>
+                            <svg width="9" height="24">
+                                <use xlink:href="./app-sprite.svg#arrow-left"></use>
+                            </svg>
+                            <svg width="9" height="24">
+                                <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#menu"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#phone"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#at"></use>
+                            </svg>
+                            <svg width="18" height="24">
+                                <use xlink:href="./app-sprite.svg#check"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#instagram"></use>
+                            </svg>
+                            <svg width="20" height="24">
+                                <use xlink:href="./app-sprite.svg#settings"></use>
+                            </svg>
+                        </div>
+                        <div class="ui-icons  app-section--mt">
+                            <svg width="28" height="40">
+                                <use xlink:href="./app-sprite.svg#battery"></use>
+                            </svg>
+                            <svg width="24" height="40">
+                                <use xlink:href="./app-sprite.svg#document"></use>
+                            </svg>
+                            <svg width="35" height="40">
+                                <use xlink:href="./app-sprite.svg#engine"></use>
+                            </svg>
+                            <svg width="32" height="40">
+                                <use xlink:href="./app-sprite.svg#pricetag"></use>
+                            </svg>
+                            <svg width="30" height="40">
+                                <use xlink:href="./app-sprite.svg#letter"></use>
+                            </svg>
+                            <svg width="24" height="40">
+                                <use xlink:href="./app-sprite.svg#lucide"></use>
+                            </svg>
+                            <svg width="34" height="40">
+                                <use xlink:href="./app-sprite.svg#car"></use>
+                            </svg>
+                            <svg width="30" height="40">
+                                <use xlink:href="./app-sprite.svg#history"></use>
+                            </svg>
+                            <svg width="30" height="40">
+                                <use xlink:href="./app-sprite.svg#speed"></use>
+                            </svg>
+                            <svg width="30" height="40">
+                                <use xlink:href="./app-sprite.svg#wheel"></use>
+                            </svg>
+                        </div>
+                        <div class="ui-icons mt-3">
+                            <svg width="46" height="52">
+                                <use xlink:href="./app-sprite.svg#car-lg"></use>
+                            </svg>
+                            <svg width="48" height="52">
+                                <use xlink:href="./app-sprite.svg#graph-lg"></use>
+                            </svg>
+                            <svg width="36" height="52">
+                                <use xlink:href="./app-sprite.svg#setup-lg"></use>
+                            </svg>
+                            <svg width="40" height="52">
+                                <use xlink:href="./app-sprite.svg#speed-lg"></use>
+                            </svg>
+                        </div>
+            
+                        <div class="ui-heading  app-section--mt">
+                            <h1>Я еще выплачиваю кредит на покупку автомобиля h1 </h1>
+                            <h2 class="mt-2">Я еще выплачиваю кредит на покупку автомобиля h2 </h2>
+                            <h3 class="mt-2">Я еще выплачиваю кредит на покупку автомобиля h3 </h3>
+                        </div>
+            
+                    </div>
+                </div>
+            
+        </main>
+        <footer class="app-footer app-section--mt">
+            <div class="app-container-holder">
+                <div class="app-footer__inner">
+                    <div class="app-container">
+                        <div class="app-footer-content">
+                            <div class="app-footer-left">
+                                <a class="app-footer__logo" href="/">
+                                    <svg width="128" height="44">
+                                        <use xlink:href="./app-sprite.svg#logo"></use>
+                                    </svg>
+                                </a>
+                                <ul class="app-footer__contacts">
+                                    <li class="app-footer__contacts-item">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#phone"></use>
+                                        </svg>
+                                        <p><a href="tel:+375447771111">+375 44 777<span>–</span>11<span>–</span>11</a></p>
+                                    </li>
+                                    <li class="app-footer__contacts-item">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#clock"></use>
+                                        </svg>
+                                        <p>Будни 09:00–21:00</p>
+                                        <p>Выходные 09:00–20:00</p>
+                                    </li>
+                                    <li class="app-footer__contacts-item">
+                                        <svg width="17" height="24">
+                                            <use xlink:href="./app-sprite.svg#pin"></use>
+                                        </svg>
+                                        <p>Минск, ул. Ленина 27 ТЦ "Ленинград" паркинг 2 этаж</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="app-footer-right">
+                                <div class="app-footer-columns">
+                                    <div class="app-footer-column">
+                                        <label class="app-footer__accordion-link">
+                                            <input type="checkbox" hidden>
+                                            <span>Клиенту</span>
+                                            <svg width="16" height="24">
+                                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </label>
+                                        <div class="app-footer__nav-wrapper">
+                                            <nav class="app-footer__nav">
+                                                <a href="#" class="app-footer__nav-link"><span>Авто в наличии</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Продать авто</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Авто из США</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Авто из Европы</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Авто в Пути</span></a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="app-footer-column">
+                                        <label class="app-footer__accordion-link">
+                                            <input type="checkbox" hidden>
+                                            <span>Услуги</span>
+                                            <svg width="16" height="24">
+                                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </label>
+                                        <div class="app-footer__nav-wrapper">
+                                            <nav class="app-footer__nav">
+                                                <a href="#" class="app-footer__nav-link"><span>Доставка авто</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Таможенное оформление</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Ремонт авто</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Отслеживание контейнеров</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Проверка карфакс</span></a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="app-footer-column app-footer__last-cell">
+                                        <label class="app-footer__accordion-link">
+                                            <input type="checkbox" hidden>
+                                            <span>Компания</span>
+                                            <svg width="16" height="24">
+                                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </label>
+                                        <div class="app-footer__nav-wrapper">
+                                            <nav class="app-footer__nav">
+                                                <a href="#" class="app-footer__nav-link"><span>Документы</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Персональные данные</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Новости</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>О компании</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Контакты</span></a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-footer-bottom">
+                            <div class="app-footer-left">
+                                <div class="app-footer-social">
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#viber"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#telegram"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#whats-app"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#instagram"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="app-footer-right">
+                                <div class="app-footer-bottom__info">
+                                    <div class="app-footer-bottom__info-left">
+                                        Все права защищены. Любое использование материалов допускается только со ссылкой на источник.
+                                    </div>
+                                    <div class="app-footer-bottom__info-right app-footer__last-cell">
+                                        © 2018-2025 УНП 191427916<br>
+                                        ИП Ясевич Александр Викторович.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</body>
+</html>
