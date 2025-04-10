@@ -1,0 +1,74 @@
+{{#> page title='ui' }}
+
+    <div class="app-container-holder app-section--mt">
+
+        <div class="app-container">
+
+            <div class="hidden">
+                <div id="callback-modal">
+                    <div class="h1">Обратный звонок</div>
+                    <div class="app-text mb-2">
+                        <p>Вы можете связаться с нами по телефону +375 44 777–11–11 в мессенджерах Viber, WhatsApp, Telegram или оставить заявку и мы сами свяжемся с Вами</p>
+                    </div>
+                    {{> components/ordering-form }}
+                </div>
+                <div id="thanks-modal">
+                    <div class="h1">Спасибо за заявку</div>
+                    <div class="app-text mb-2">
+                        <p>В ближайшее время с вами свяжется менеджер Компании. </p>
+                    </div>
+                    <button class="app-btn btn-mobile-full btn-size-m btn-primary js-modal-close"><span>Закрыть</span></button>
+                </div>
+                <div id="eval-modal">
+                    <div class="h1">Оценить авто</div>
+                    <div class="app-text mb-2">
+                        <p>Поставить авто на комиссию очень просто. Отправьте нам заявку и в ближайшее время с вами свяжется специалист</p>
+                    </div>
+                    {{> components/eval-form }}
+                </div>
+                <div id="ordering-modal">
+                    <div class="h1">Заказать авто</div>
+                    {{> components/ordering-expert-form }}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <button class="app-btn btn-primary btn-size-m" data-modal="callback-modal">
+                    <span>Обратный звонок</span>
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <button class="app-btn btn-primary btn-size-m" data-modal="thanks-modal">
+                    <span>Спасибо за заявку</span>
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <button class="app-btn btn-primary btn-size-m" data-modal="eval-modal">
+                    <span>Оценить авто</span>
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <button class="app-btn btn-primary btn-size-m" data-modal="ordering-modal">
+                    <span>Заказать авто</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Инициализация модальных окон на странице
+            document.querySelectorAll('[data-modal]').forEach(button => {
+                const {modal: modalId, closable: isClosable = true} = button.dataset;
+                const modal = new AppModal(modalId);
+                modal.setClosable(isClosable)
+                button.addEventListener('click', () => modal.open());
+            });
+        })
+    </script>
+
+{{/page}}

@@ -1,0 +1,139 @@
+<div class="app-contacts app-page--mt">
+    <div class="app-container-holder">
+        <div class="app-container">
+        <div class="app-crumbs"><a href="/"><span>Главная</span></a><span> \ </span></div>
+
+        <div class="app-section--header">
+            <h2>Контакты</h2>
+        </div>
+
+        <div class="app-contacts__grid">
+            <div class="--left">
+                <div class="app-contacts__map">
+                    <div id="map"></div>
+                </div>
+                <div class="app-block--mt app-mobile-visible">
+                    <a href="#" class="app-btn btn-primary btn-size-m"><span>Построить маршрут</span></a>
+                </div>
+                <div class="app-text app-desktop-visible app-block--mt">
+                    <p>ИП Яскевич Александр Викторович . УНП: 191427916. 220118 г. Минск ул. Шишкина 28-67</p>
+                    <p>Свидетельство о регистрации выдано Минский городской исполнительный комитет, 22.09.2010</p>
+                </div>
+            </div>
+            <div class="--right">
+                <ul class="app-footer__contacts">
+                    <li class="app-footer__contacts-item">
+                        <svg width="20" height="24">
+                            <use xlink:href="/app-sprite.svg#phone"></use>
+                        </svg>
+                        <p><a href="tel:+375447771111">+375 44 777<span>–</span>11<span>–</span>11</a></p>
+                    </li>
+                    <li class="app-footer__contacts-item">
+                        <svg width="20" height="24">
+                            <use xlink:href="/app-sprite.svg#clock"></use>
+                        </svg>
+                        <p>Будни 09:00–21:00</p>
+                        <p>Выходные 09:00–20:00</p>
+                    </li>
+                    <li class="app-footer__contacts-item">
+                        <svg width="17" height="24">
+                            <use xlink:href="/app-sprite.svg#pin"></use>
+                        </svg>
+                        <p>Минск, ул. Ленина 27 ТЦ "Ленинград" паркинг 2 этаж</p>
+                    </li>
+                </ul>
+                <div class="app-footer-social app-block--mt">
+                    <a href="#">
+                        <svg width="20" height="24">
+                            <use xlink:href="/app-sprite.svg#viber"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="20" height="24">
+                            <use xlink:href="/app-sprite.svg#telegram"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="20" height="24">
+                            <use xlink:href="/app-sprite.svg#whats-app"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg width="20" height="24">
+                            <use xlink:href="/app-sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+                <div class="app-desktop-visible">
+                    <a href="#" class="app-btn btn-primary btn-size-m"><span>Построить маршрут</span></a>
+                </div>
+                <div class="app-text app-mobile-visible">
+                    <p>ИП Яскевич Александр Викторович . УНП: 191427916. 220118 г. Минск ул. Шишкина 28-67</p>
+                    <p>Свидетельство о регистрации выдано Минский городской исполнительный комитет, 22.09.2010</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [53.88910, 27.581249],
+                zoom: 17,
+                mode: 'vector',
+                controls: ['zoomControl'], // Добавляем элемент управления зумом
+                behaviors: ['drag', 'multiTouch'] // Оставляем только нужные поведения
+            }, {
+                suppressMapOpenBlock: true,
+            });
+
+            var myIcon = new ymaps.Placemark(
+                    [53.88910, 27.581249],
+                    {
+                        hintContent: 'AM Cars',
+                        balloonContent: 'AM Cars - доставим авто из европы и сша'
+                    },
+                    {
+                        iconLayout: 'default#image',
+                        iconImageHref: './images/marker.png',
+                        iconImageSize: [52, 52],
+                        iconImageOffset: [-26, -26],
+                        iconContentOffset: [0, 0]
+                    }
+            );
+
+            myMap.geoObjects.add(myIcon);
+
+            myMap.behaviors.disable([
+                'scrollZoom',
+                'dblClickZoom',
+                'multiTouch'
+            ]);
+
+            function handleDragBehavior() {
+                const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+
+                if(isMobile) {
+                    myMap.behaviors.disable('drag');
+                } else {
+                    myMap.behaviors.enable('drag');
+                }
+            }
+
+            handleDragBehavior();
+
+            const mediaQuery = window.matchMedia('(max-width: 1023px)');
+            mediaQuery.addListener(handleDragBehavior);
+
+
+            myMap.events.add('contextmenu', function(e) {
+                e.preventDefault();
+            });
+        }
+    </script>
+
+</div>
+

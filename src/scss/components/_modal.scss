@@ -1,0 +1,85 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+
+.app-modal {
+    --modal-close-size: 24px;
+    --modal-content-gap: var(--content-gap);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background: rgba(0,0,0,0.5);
+    z-index: var(--modal-index);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mixin.mq-min(lg) {
+        --modal-content-gap: 72px;
+    }
+}
+
+.app-modal__wrapper {
+    position: relative;
+    background-color: white;
+    border-radius: 16px;
+    max-height: 100%;
+    max-height: 100dvh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    max-width: 450px;
+    @include mixin.mq-min(md) {
+        max-width: 632px;
+    }
+}
+
+.app-modal__close {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    width: var(--modal-close-size);
+    height: var(--modal-close-size);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    top: calc(var(--modal-content-gap) / 2 - var(--modal-close-size) / 2);
+    right: calc(var(--modal-content-gap) / 2 - var(--modal-close-size) / 2);
+    cursor: pointer;
+
+    @media (hover: hover) {
+        &:not(:hover) {
+            color: #BBB9B7;
+        }
+    }
+    @include mixin.mq-max(md) {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+.app-modal__content {
+    color: var(--text-color);
+    padding: var(--modal-content-gap);
+
+    h1, h2, .h1, .h2 {
+        margin-bottom: 16px;
+    }
+}
+
+
+@include mixin.mq-max(md) {
+    .app-modal {
+        --modal-content-gap: 24px;
+        align-items: flex-end;
+    }
+    .app-modal__wrapper {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}

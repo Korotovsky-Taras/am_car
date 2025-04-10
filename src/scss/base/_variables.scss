@@ -1,0 +1,44 @@
+@use "sass:list";
+@use "sass:meta";
+$media-point-xs: 544px;
+$media-point-sm: 768px;
+$media-point-md: 1024px;
+$media-point-lg: 1440px;
+$media-point-xl: 1900px;
+
+$media-points: ($media-point-sm, $media-point-md, $media-point-lg, $media-point-xl);
+
+@function media-min($n) {
+    @if meta.type_of($n) == number {
+        @if $n > list.length($media-points) {
+            @error "максимальное значение точки #{list.length($media-points)}"
+        } @else {
+            @return list.nth($media-points, $n);
+        }
+    } @else if meta.type_of($n) == string {
+        @if $n == xs {
+            @return $media-point-xs;
+        }
+        @if $n == sm {
+            @return $media-point-sm;
+        }
+        @if $n == md {
+            @return $media-point-md;
+        }
+        @if $n == lg {
+            @return $media-point-lg;
+        }
+        @if $n == xl {
+            @return $media-point-xl;
+        }
+    }
+}
+
+@function media_max($n) {
+    $point: media-min($n);
+    @return ($point - 1px);
+}
+
+@function withRatio($n) {
+    @return calc($n * var(--fs-ratio));
+}

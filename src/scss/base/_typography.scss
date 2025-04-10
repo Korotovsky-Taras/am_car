@@ -1,0 +1,48 @@
+@use "sass:map";
+$fonts: (
+    "inter": "Inter",
+    "unbounded": "Unbounded",
+    "mulish": "Mulish"
+);
+
+$weights: (400, 500, 600, 700);
+
+@each $font-key, $font-family in $fonts {
+    @each $weight in $weights {
+        .#{$font-key}-#{$weight} {
+            font-family: #{$font-family}, sans-serif;
+            font-optical-sizing: auto;
+            font-weight: $weight;
+            font-style: normal;
+        }
+    }
+}
+
+@function font($name, $size, $weight: 400) {
+    @if not map.has-key($fonts, $name) {
+        @error "Шрифт '#{$name}' не найден в $fonts. Доступные шрифты: #{map.keys($fonts)}";
+    }
+
+    @return "#{$weight} #{$size}/normal #{map.get($fonts, $name)}, sans-serif";
+}
+
+@mixin font($name, $size, $weight: 400) {
+    @if not map.has-key($fonts, $name) {
+        @error "Шрифт '#{$name}' не найден в $fonts. Доступные шрифты: #{map.keys($fonts)}";
+    }
+
+    font: #{$weight} #{$size}/normal #{map.get($fonts, $name)}, sans-serif;
+    font-optical-sizing: auto;
+}
+
+@mixin inter($size, $weight: 400) {
+    @include font("inter", $size, $weight);
+}
+
+@mixin unbounded($size, $weight: 400) {
+    @include font("unbounded", $size, $weight);
+}
+
+@mixin mulish($size, $weight: 400) {
+    @include font("mulish", $size, $weight);
+}

@@ -1,0 +1,6 @@
+import "./parts/default-slider.js"
+import "./parts/review-slider.js"
+import "./parts/banners-outdent.js"
+import "./parts/modal.js"
+import "./parts/input.js"
+import "./parts/select.js"

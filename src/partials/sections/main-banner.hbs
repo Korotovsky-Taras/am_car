@@ -1,0 +1,97 @@
+<section class="app-banner js-banner">
+    <div class="app-container-holder">
+        <div class="swiper-pagination app-banner__pagination app-mobile-visible"></div>
+        <swiper-container id="banner-swiper" pagination="true"  init="false">
+            <div slot="container-end">
+                <div class="app-banner__navigation app-desktop-visible">
+                    <button class="app-btn btn-secondary btn-size-m swiper-left">
+                        <svg width="9" height="24">
+                            <use xlink:href="/app-sprite.svg#arrow-left"></use>
+                        </svg>
+                    </button>
+                    <button class="app-btn btn-secondary btn-size-m swiper-right">
+                        <svg width="9" height="24">
+                            <use xlink:href="/app-sprite.svg#arrow-right"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <swiper-slide>
+                <div class="app-banner__slider-img">
+                    <img src="./images/banner.jpg" alt="" />
+                </div>
+                <div class="app-banner__slider-item app-container">
+                    <div class="content">
+                        <div class="title">Автомобили <i></i>под заказ из США</div>
+                        <div class="text">Мы поможем подобрать и доставить автомобиль из США с учетом ваших пожеланий и бюджета</div>
+                        <a href="#" class="app-btn btn-primary btn-size-m" id="banner-swiper-left">
+                            <span>Выбрать авто</span>
+                        </a>
+                    </div>
+                    <div class="app-banner__slider-tags app-desktop-visible">
+                        <span>Профессиональный подбор авто</span>
+                        <span>Фото и видео обзор вашего авто</span>
+                        <span>Фиксированная стоимость услуг без доплат</span>
+                    </div>
+                </div>
+            </swiper-slide>
+            <swiper-slide>
+                <div class="app-banner__slider-img">
+                    <img src="./images/banner.jpg" alt="" />
+                </div>
+                <div class="app-banner__slider-item app-container">
+                    <div class="content">
+                        <div class="title">Автомобили <i></i>под заказ из США</div>
+                        <div class="text">Мы поможем подобрать и доставить автомобиль из США с учетом ваших пожеланий и бюджета</div>
+                        <a href="#" class="app-btn btn-primary btn-size-m" id="banner-swiper-left">
+                            <span>Выбрать авто</span>
+                        </a>
+                    </div>
+                    <div class="app-banner__slider-tags app-desktop-visible">
+                        <span>Профессиональный подбор авто</span>
+                        <span>Фото и видео обзор вашего авто</span>
+                        <span>Фиксированная стоимость услуг без доплат</span>
+                    </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+    </div>
+
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            const banner = document.querySelector(".app-banner");
+
+            if (!banner) return;
+
+            const swiper = banner.querySelector("swiper-container");
+            const pagination = banner.querySelector(".swiper-pagination");
+            const slidePrevButton = banner.querySelector(".swiper-left");
+            const slideNextButton = banner.querySelector(".swiper-right");
+
+            const params = {
+                loop: true,
+                slidesPerView: 1,
+                pagination: {
+                    el: pagination
+                }
+            };
+
+            Object.assign(swiper, params);
+
+            swiper.initialize();
+
+            const {swiper: sw} = swiper;
+
+            if (slideNextButton && slidePrevButton && sw) {
+                slideNextButton.addEventListener('click', () => {
+                    sw.slideNext();
+                })
+
+                slidePrevButton.addEventListener('click', () => {
+                    sw.slidePrev();
+                })
+            }
+        })
+    </script>
+</section>

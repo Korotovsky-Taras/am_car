@@ -1,0 +1,84 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-about-us {
+}
+
+
+.app-about-us__grid {
+    display: grid;
+    grid-gap: 128px;
+
+    @include mixin.mq-max(md) {
+        grid-gap: 78px;
+    }
+}
+
+.app-about-us__item {
+    display: grid;
+    grid-gap: 24px;
+
+    @include mixin.mq-min(md) {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: flex-end;
+        grid-gap: 104px;
+
+        &.--right {
+            direction: rtl;
+        }
+    }
+
+    @include mixin.mq-min(lg) {
+        align-items: center;
+    }
+}
+
+.app-about-us__img {
+    aspect-ratio: 592 / 360;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: var(--c-radius);
+
+    img {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    @include mixin.mq-max(lg) {
+        aspect-ratio: 592 / 498;
+    }
+
+    @include mixin.mq-max(md) {
+        aspect-ratio: 3 / 1;
+    }
+
+    @include mixin.mq-max(sm) {
+        aspect-ratio: 2 / 1;
+    }
+}
+
+.app-about-us__item-content {
+    --h-indent: 24px;
+    --c-indent: 24px;
+
+    max-width: 520px;
+
+    h2 {
+        margin-bottom: var(--h-indent);
+    }
+
+    .app-text {
+        margin-bottom: var(--c-indent);
+    }
+
+    @include mixin.mq-max(md) {
+        --h-indent: 24px;
+        --c-indent: 32px;
+    }
+}

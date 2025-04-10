@@ -1,0 +1,160 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-stock-thumb {
+    position: relative;
+
+    &:hover {
+        .app-stock-thumb__title {
+            color: var(--cl-pR1);
+        }
+    }
+}
+
+.app-stock-thumb__area {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        display: block;
+        aspect-ratio: 384/288;
+    }
+}
+
+.app-stock-thumb__grid {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    .app-stock-thumb__img {
+        flex: 1;
+    }
+}
+
+
+.app-stock-thumb__indicators {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 4px;
+    bottom: 24px;
+    visibility: hidden;
+
+    @media (hover: hover) {
+        visibility: visible;
+
+        .app-stock-thumb__area:not(:hover) & > span:nth-child(1) {
+            background-color: white;
+        }
+
+        @for $i from 1 through 20 {
+            .app-stock-thumb__img:nth-child(#{$i}):hover ~ & > span:nth-child(#{$i}) {
+                background-color: white;
+            }
+        }
+        span {
+            width: 100%;
+            max-width: 42px;
+            flex: 1;
+            height: 2px;
+            background-color: rgba(255,255,255,0.32);
+        }
+    }
+}
+
+.app-stock-thumb__img {
+    img {
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        visibility: hidden;
+    }
+
+    &:hover {
+        img {
+            visibility: visible;
+        }
+    }
+
+    .app-stock-thumb__area:not(:hover) &:nth-child(1) {
+        img {
+            visibility: visible;
+        }
+    }
+}
+
+.app-stock-thumb__status {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    font-size: 12px;
+    padding: 4px 12px;
+    white-space: nowrap;
+    border-radius: 36px;
+    pointer-events: none;
+
+    &.--in-stock {
+        color: white;
+        background-color: var(--cl-pR4);
+    }
+}
+
+.app-stock-thumb__title {
+    padding-top: 24px;
+    color: var(--cl-tR3);
+    @include typography.unbounded(24px);
+    transition: color 0.15s ease-out;
+    @include mixin.mq-max(md) {
+        font-size: 20px;
+    }
+}
+
+.app-stock-thumb__price {
+    padding-top: 8px;
+    color: var(--cl-tR2);
+    @include typography.unbounded(16px);
+
+    small {
+        color: var(--cl-tR1);
+        @include typography.inter(12px);
+        white-space: nowrap;
+        margin-left: 24px;
+    }
+}
+
+.app-stock-thumb__info {
+    padding-top: 16px;
+    color: var(--cl-tR1);
+    font-size: 14px;
+    display: flex;
+    row-gap: 6px;
+    column-gap: 12px;
+    flex-wrap: wrap;
+    padding-right: 24px;
+    line-height: 1;
+
+    > span {
+        white-space: nowrap;
+    }
+
+    @include mixin.mq-max(md) {
+        font-size: 10px;
+    }
+}

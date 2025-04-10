@@ -1,0 +1,23 @@
+swiper-container {
+    --sw-btn-index: 10;
+    --sw-btn-indent: 0px;
+    --sw-btn-top: 40px;
+
+    .btn-slider {
+        position: absolute;
+        top: var(--sw-btn-top);
+        z-index: var(--sw-btn-index);
+
+        &:not(.active) {
+            visibility: hidden;
+        }
+    }
+    .swiper-left {
+        left: 0;
+        margin-left: var(--sw-btn-indent);
+    }
+    .swiper-right {
+        right: 0;
+        margin-right: var(--sw-btn-indent);
+    }
+}

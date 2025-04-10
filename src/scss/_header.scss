@@ -1,0 +1,144 @@
+@use "base/typography";
+@use "base/mixin";
+
+.app-header {
+    position: relative;
+    z-index: var(--h-index);
+    padding-top: var(--header-t-indent);
+
+    .--start {
+        margin-right: auto;
+    }
+
+    .--end {
+        margin-left: auto;
+    }
+}
+
+.app-header__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--cl-pR1)
+}
+
+.app-header__top-menu {
+    --fs: 12px;
+    --weight: 400;
+    --link-gap: 24px;
+
+    display: flex;
+    align-items: center;
+}
+
+.app-header__bottom-menu {
+    --fs: 16px;
+    --weight: 400;
+    --link-gap: 64px;
+
+    flex-basis: 100%;
+    margin-top: 32px;
+    padding-top: 32px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 1px;
+        background-color: var(--cl-bR1);
+        opacity: 0.5;
+    }
+
+    @include mixin.mq-max(lg) {
+        --link-gap: 32px;
+    }
+}
+
+.app-header__logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+
+    svg {
+        max-width: 148px;
+        height: auto;
+    }
+}
+
+.app-header__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--link-gap);
+}
+
+.app-header__nav-link {
+    @include typography.unbounded(var(--fs), var(--weight));
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    margin: -12px 0;
+
+    > span {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 0.5em;
+        margin-bottom: -0.5em;
+        line-height: 1;
+        vertical-align: middle;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            box-shadow: inset 0 2px 0;
+            transform: translateX(100%);
+            transition: transform 0.15s ease-out;
+        }
+    }
+
+    &.active {
+        cursor: default;
+    }
+
+    &:hover, &.active {
+        color: var(--cl-pR1);
+
+        > span {
+            &:after {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+
+.app-header__wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.app-header-mobile {
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.app-main {
+
+}

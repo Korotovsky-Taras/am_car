@@ -1,0 +1,114 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-blog {
+}
+
+.app-blog__grid {
+    display: grid;
+    overflow: visible;
+    align-items: flex-start;
+    position: relative;
+
+
+    @include mixin.mq-min(md) {
+        grid-template-rows: minmax(0, 1fr); // Важно для sticky
+        grid-template-columns: 1fr 386px;
+        grid-gap: 32px;
+
+        .--right {
+            position: sticky;
+            top: 32px;
+            align-self: start;
+            height: fit-content;
+        }
+    }
+    @include mixin.mq-min(lg) {
+        grid-gap: 48px;
+    }
+}
+
+
+.app-blog__content {
+
+    h1,h2,h3 {
+        margin-bottom: 32px;
+        line-height: 1;
+    }
+    h4,h5 {
+        margin-bottom: 24px;
+    }
+
+    img {
+        display: block;
+        border-radius: var(--c-radius);
+        width: 100%;
+    }
+
+    * + {
+        h1,h2,h3 {
+            margin-top: variables.withRatio(64px);
+        }
+
+        img {
+            margin-top: variables.withRatio(32px);
+        }
+    }
+
+    * + {
+        h1,h2,h3 {
+            margin-top: variables.withRatio(64px);
+        }
+    }
+}
+
+.app-blog-banner__grid {
+    padding: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.app-blog-banner__title {
+    --fs: 36px;
+    @include typography.unbounded(variables.withRatio(var(--fs)));
+    margin-bottom: 24px;
+
+    @include mixin.mq-max(md) {
+        --fs: 28px;
+    }
+}
+
+.app-blog-banner__text {
+    @include mixin.mq-max(md) {
+        font-size: 14px;
+    }
+}
+
+.app-blog-banner {
+    aspect-ratio: 312 / 530;
+    overflow: hidden;
+    color: white;
+
+    .app-blog-banner__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+    }
+}

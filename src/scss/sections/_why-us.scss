@@ -1,0 +1,71 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-why-us {
+    @include mixin.mq-max(lg) {
+        --content-in-max: 800px
+    }
+}
+
+.app-why-us__holder {
+    max-width: var(--content-in-max);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.app-why-us__top {
+
+    @include mixin.mq-min(md) {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.app-why-us__section {
+    --gap: 24px;
+
+    h2 {
+        margin-bottom: 24px;
+
+        span {
+            color: var(--cl-pR1)
+        }
+    }
+
+    .app-btn {
+        margin-top: 24px;
+    }
+
+    @include mixin.mq-max(md) {
+        margin-top: 32px;
+
+        ~ .app-why-us__section {
+            margin-top: 64px;
+        }
+    }
+
+    @include mixin.mq-min(md) {
+        width: calc(50% - var(--gap));
+        max-width: 400px;
+
+        &.--right {
+            margin-left: auto;
+        }
+        &.--left {
+            margin-right: auto;
+        }
+
+        h2 {
+            margin-bottom: 32px;
+        }
+        .app-btn {
+            margin-top: 32px;
+        }
+    }
+    @include mixin.mq-min(lg) {
+        max-width: 590px;
+    }
+}

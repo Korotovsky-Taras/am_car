@@ -1,0 +1,36 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-section__in-stock {
+    position: relative;
+    overflow-x: hidden;
+
+    swiper-container {
+        --sw-btn-top: 108px;
+
+        &.touched {
+            swiper-slide {
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+
+        > swiper-slide {
+            width: 384px;
+        }
+
+        @include mixin.mq-max(md) {
+            > swiper-slide {
+                width: 280px;
+            }
+        }
+    }
+}
+

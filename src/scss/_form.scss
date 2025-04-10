@@ -1,0 +1,94 @@
+.app-input {
+    position: relative;
+
+    &.empty:not(:focus-within) {
+        .app-input__placeholder {
+            transform: translateY(12px);
+            font-size: 16px;
+        }
+    }
+
+    > label {
+        line-height: 1;
+    }
+
+    input, textarea {
+        background-color: transparent;
+        appearance: none;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: "Inter", sans-serif;
+        border: none;
+        outline: none;
+        padding: var(--input-pl-top) 24px 12px var(--input-left);
+        box-shadow: var(--input-shadow);
+        color: var(--input-color);
+        border-radius: 8px;
+        transition-property: box-shadow, color;
+        transition-timing-function: ease-out;
+        transition-duration: 0.3s;
+        width: 100%;
+        box-sizing: border-box;
+        vertical-align: middle;
+        min-height: var(--input-height);
+        max-width: 100%;
+        resize: none;
+
+        &:focus {
+            box-shadow: var(--input-active-shadow);
+
+            &::placeholder {
+                color: var(--input-placeholder-color);
+            }
+        }
+
+        &::placeholder {
+            color: transparent;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+
+.app-input__placeholder {
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    left: var(--input-left);
+    color: var(--input-placeholder-color);
+    transition-property: transform, font-size;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+    font-size: 12px;
+}
+
+
+.app-checkbox {
+    display: inline-flex;
+    gap: 14px;
+
+    input[type=checkbox] {
+        display: none;
+
+        &:checked ~ .app-checkbox__icon {
+            svg {
+                visibility: visible;
+            }
+        }
+    }
+
+    .app-checkbox__icon {
+        display: inline-flex;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        box-shadow: inset 0 0 0 1px var(--cl-pR1);
+
+        svg {
+            visibility: hidden;
+        }
+    }
+}

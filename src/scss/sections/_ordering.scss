@@ -1,0 +1,132 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-ordering {
+
+    .app-ordering__form {
+        --input-color: #fff;
+        --input-shadow-color: var(--cl-pR1);
+        --input-active-shadow-color: white;
+        --input-placeholder-color: #{rgba(#fff, 0.32)};
+    }
+}
+
+.app-ordering__form-check {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    align-items: center;
+    font-size: 16px;
+    gap: 20px;
+
+    p:last-child {
+        color: var(--text-color);
+    }
+
+    @include mixin.mq-max(sm) {
+        gap: 4px;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 14px;
+    }
+}
+
+.app-ordering__inner {
+    border-radius: var(--c-radius);
+    background: linear-gradient(200.08deg, #282727 43.17%, #9F8774 180.82%), #282727;
+    padding-top: variables.withRatio(72px);
+    padding-bottom: variables.withRatio(82px);
+    color: white;
+
+    @include mixin.mq-max(md) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+}
+
+.app-ordering__content {
+    font-size: 16px;
+
+    h2 {
+        color: white;
+        margin-bottom: 24px;
+        max-width: 566px;
+
+        span {
+            color: var(--cl-pR1)
+        }
+    }
+
+    @include mixin.mq-max(md) {
+        font-size: 14px;
+        h2 {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.app-ordering__grid {
+    display: grid;
+    row-gap: 32px;
+    @include mixin.mq-min(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.app-ordering__holder {
+    max-width: var(--content-in-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-ordering-social {
+    margin-top: 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+
+    @media (hover: hover) {
+        [href]:hover {
+            color: var(--cl-pR1);
+            transition: color 0.3s ease-in-out;
+        }
+    }
+
+    @include mixin.mq-max(md) {
+        margin-top: 24px;
+    }
+}
+
+
+.app-ordering__form-grid {
+    display: grid;
+    gap: 18px;
+
+    @include mixin.mq-min(md) {
+        grid-template-columns: repeat(2, 1fr);
+
+        .--d-full {
+            grid-column: 1/-1;
+        }
+    }
+}
+
+.app-ordering__form-footer {
+    margin-top: 16px;
+
+    a[href]:not(:hover) {
+        text-decoration: underline;
+    }
+
+    .app-btn {
+        margin-top: 32px;
+    }
+
+    @include mixin.mq-max(sm) {
+        .app-btn {
+            width: 100%;
+        }
+    }
+}
