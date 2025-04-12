@@ -1,4 +1,23 @@
+
+
 class AppSelect {
+    #POPUP_SELECTOR = 'app-select__popup';
+    #POPUP_CONTENT_SELECTOR = 'app-select__popup-content';
+    #POPUP_ROOT_STYLE = '.' + this.#POPUP_SELECTOR;
+    #POPUP_OPTION_SELECTOR = 'app-select__option';
+    #POPUP_OPTION_STYLE = '.' + this.#POPUP_OPTION_SELECTOR;
+    #POPUP_HEADER_SELECTOR = 'app-select__popup-header';
+    #POPUP_HEADER_TITLE_SELECTOR = 'app-select__popup-header-title';
+    #POPUP_HEADER_RESET_SELECTOR = 'app-select__popup-header-reset';
+    #POPUP_OPTIONS_CONTAINER_SELECTOR = 'app-select__popup-options';
+    #POPUP_OPTION_GROUP_SELECTOR = 'app-select__optgroup';
+    #POPUP_OPTION_GROUP_LABEL_SELECTOR = 'app-select__optgroup-label';
+    #POPUP_APPLY_SELECTOR = 'app-select__popup-apply';
+    #POPUP_APPLY_STYLE = '.' + this.#POPUP_APPLY_SELECTOR;
+
+    #POPUP_ANCHOR_SELECTOR = 'app-select__view';
+    #POPUP_ANCHOR_STYLE = '.' + this.#POPUP_ANCHOR_SELECTOR;
+
     constructor(el) {
         this.el = el;
         this.activePopup = null;
@@ -9,6 +28,21 @@ class AppSelect {
 
     get isMobile() {
         return window.matchMedia('(max-width: 1024px)').matches;
+    }
+
+
+    _createHeaderTitle(titleText) {
+        const title = document.createElement('div');
+        title.innerHTML = `<svg width="9" height="24"><use xlink:href="/app-sprite.svg#arrow-left"></use></svg> <span>${titleText}</span>`;
+        title.className = this.#POPUP_HEADER_TITLE_SELECTOR;
+        return title;
+    }
+
+    _createResetButton(text) {
+        const btn = document.createElement('button');
+        btn.innerHTML = `<span>${text}</span> <svg width="14" height="24"><use xlink:href="/app-sprite.svg#close"></use></svg>`;
+        btn.className = this.#POPUP_HEADER_RESET_SELECTOR;
+        return btn;
     }
 
     init() {
@@ -51,7 +85,7 @@ class AppSelect {
 
 
     setupSelect() {
-        const selectView = this.el.querySelector('.app-select__view');
+        const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
         const nativeSelect = this.el.querySelector('select');
 
         if (nativeSelect.dataset.multichoice) {
@@ -66,7 +100,7 @@ class AppSelect {
                 if (this.activePopup) {
                     this.closePopup();
                 } else {
-                    const openPopups = document.querySelectorAll('.app-select__popup');
+                    const openPopups = document.querySelectorAll(this.#POPUP_ROOT_STYLE);
                     openPopups.forEach(popup => {
                         if (popup !== this.activePopup) {
                             const selectInstance = window.appSelectInstances?.find(
@@ -85,7 +119,7 @@ class AppSelect {
     }
 
     setInitialValue() {
-        const selectView = this.el.querySelector('.app-select__view');
+        const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
         const select = this.el.querySelector('select');
         const placeholderOption = select.querySelector('option[value="placeholder"]');
 
@@ -107,19 +141,22 @@ class AppSelect {
 
         // Создаем popup
         const popup = document.createElement('div');
-        popup.className = 'app-select__popup';
+        const popupContent = document.createElement('div');
+        popup.className = this.#POPUP_SELECTOR;
+        popupContent.className = this.#POPUP_CONTENT_SELECTOR;
+
 
         if (this.isMobile) {
             const header = document.createElement('div');
-            header.className = 'app-select__popup-header';
+            header.className = this.#POPUP_HEADER_SELECTOR;
 
-            const title = document.createElement('div');
-            title.className = 'app-select__popup-title';
-            title.textContent = this.el.querySelector('.app-select__view').textContent;
+            const titleText = this.el.querySelector(this.#POPUP_ANCHOR_STYLE).textContent;
+            const title = this._createHeaderTitle(titleText);
+            title.addEventListener('click', () => {
+                this.closePopup();
+            })
 
-            const resetBtn = document.createElement('div');
-            resetBtn.className = 'app-select__popup-reset';
-            resetBtn.textContent = 'Сбросить';
+            const resetBtn = this._createResetButton('Сбросить');
             resetBtn.addEventListener('click', () => {
                 this.resetSelection();
                 this.applySelection();
@@ -131,15 +168,18 @@ class AppSelect {
             popup.appendChild(header);
         }
 
+
+        popup.appendChild(popupContent);
+
         const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'app-select__popup-options';
+        optionsContainer.className = this.#POPUP_OPTIONS_CONTAINER_SELECTOR;
 
         this.populateOptions(optionsContainer, select);
-        popup.appendChild(optionsContainer);
+        popupContent.appendChild(optionsContainer);
 
         if (select.hasAttribute('data-multichoice') || this.isMobile) {
             const applyBtn = document.createElement('div');
-            applyBtn.className = 'app-select__popup-apply';
+            applyBtn.className = this.#POPUP_APPLY_SELECTOR;
             applyBtn.textContent = 'Применить';
 
             if (!this.isMobile && select.hasAttribute('data-multichoice')) {
@@ -151,7 +191,7 @@ class AppSelect {
                 this.closePopup();
             });
 
-            popup.appendChild(applyBtn);
+            popupContent.appendChild(applyBtn);
         }
 
         document.body.appendChild(popup);
@@ -167,10 +207,10 @@ class AppSelect {
         options.forEach(option => {
             if (option.tagName === 'OPTGROUP') {
                 const groupEl = document.createElement('div');
-                groupEl.className = 'app-select__optgroup';
+                groupEl.className = this.#POPUP_OPTION_GROUP_SELECTOR;
 
                 const labelEl = document.createElement('div');
-                labelEl.className = 'app-select__optgroup-label';
+                labelEl.className = this.#POPUP_OPTION_GROUP_LABEL_SELECTOR;
                 labelEl.textContent = option.getAttribute('label');
                 groupEl.appendChild(labelEl);
 
@@ -192,7 +232,7 @@ class AppSelect {
 
     createOptionElement(option, isMulti) {
         const optionEl = document.createElement('div');
-        optionEl.className = 'app-select__option';
+        optionEl.className = this.#POPUP_OPTION_SELECTOR;
         optionEl.dataset.value = option.value;
         optionEl.textContent = option.textContent;
 
@@ -210,7 +250,7 @@ class AppSelect {
                     this.updateApplyButtonVisibility();
                 }
             } else {
-                const options = optionEl.closest('.app-select__popup').querySelectorAll('.app-select__option');
+                const options = optionEl.closest(this.#POPUP_ROOT_STYLE).querySelectorAll(this.#POPUP_OPTION_STYLE);
                 options.forEach(opt => opt.classList.remove('active'));
                 optionEl.classList.add('active');
 
@@ -230,11 +270,11 @@ class AppSelect {
         const select = this.el.querySelector('select');
         if (!select.hasAttribute('data-multichoice')) return;
 
-        const applyBtn = this.activePopup.querySelector('.app-select__popup-apply');
+        const applyBtn = this.activePopup.querySelector(this.#POPUP_APPLY_STYLE);
         if (!applyBtn) return;
 
         const currentSelection = new Set();
-        this.activePopup.querySelectorAll('.app-select__option.active').forEach(option => {
+        this.activePopup.querySelectorAll('.' + this.#POPUP_OPTION_SELECTOR + '.active').forEach(option => {
             currentSelection.add(option.dataset.value);
         });
 
@@ -286,7 +326,7 @@ class AppSelect {
     }
 
     updateViewText(selectedTexts) {
-        const selectView = this.el.querySelector('.app-select__view');
+        const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
         const select = this.el.querySelector('select');
 
         const changeView = !select.hasAttribute('data-change-view') || select.getAttribute('data-change-view') !== 'false';
@@ -326,7 +366,7 @@ class AppSelect {
     resetSelection() {
         if (!this.activePopup) return;
 
-        const options = this.activePopup.querySelectorAll('.app-select__option');
+        const options = this.activePopup.querySelectorAll(this.#POPUP_OPTION_STYLE);
         options.forEach(option => {
             option.classList.remove('active');
         });
@@ -336,18 +376,49 @@ class AppSelect {
 
     positionPopup(popup) {
         const selectRect = this.el.getBoundingClientRect();
-        const scrollTop = document.scrollingElement.scrollTop;
-        const clientHeight = document.scrollingElement.clientHeight;
-        const popupHeight = popup.offsetHeight;
+        const scrollableParent = this.findScrollableParent(this.el);
+        const parentRect = scrollableParent.getBoundingClientRect();
 
-        let top = scrollTop + selectRect.bottom;
-        if (top + popupHeight > clientHeight) {
-            top = scrollTop + selectRect.top - popupHeight;
+        const relativeTop = selectRect.top - parentRect.top + scrollableParent.scrollTop;
+        const relativeLeft = selectRect.left - parentRect.left;
+
+        const spaceBelow = parentRect.height - (selectRect.bottom - parentRect.top);
+        const spaceAbove = selectRect.top - parentRect.top;
+        const popupHeight = Math.min(popup.offsetHeight, parentRect.height * 0.8);
+
+        let top;
+        if (spaceBelow >= popupHeight || spaceBelow >= spaceAbove) {
+            top = relativeTop + selectRect.height;
+        } else {
+            top = relativeTop - popupHeight;
         }
+
+        const maxTop = parentRect.height - popupHeight;
+        top = Math.max(0, Math.min(top, maxTop));
 
         popup.style.position = 'absolute';
         popup.style.top = `${top}px`;
-        popup.style.left = `${selectRect.left}px`;
+        popup.style.left = `${relativeLeft}px`;
+        popup.style.width = `${selectRect.width}px`;
+        popup.style.maxHeight = `${parentRect.height * 0.8}px`;
+        popup.style.overflowY = 'auto';
+
+        if (!this.isMobile) {
+            scrollableParent.appendChild(popup);
+        }
+    }
+
+    findScrollableParent(element) {
+        let parent = element.parentElement;
+        while (parent) {
+            const style = window.getComputedStyle(parent);
+            if (style.overflowY === 'auto' || style.overflowY === 'scroll' ||
+                style.overflow === 'auto' || style.overflow === 'scroll') {
+                return parent;
+            }
+            parent = parent.parentElement;
+        }
+        return document.scrollingElement || document.documentElement;
     }
 
     closePopup() {
@@ -356,6 +427,7 @@ class AppSelect {
             this.activePopup = null;
         }
     }
+
 }
 
 window.AppSelect = AppSelect;
