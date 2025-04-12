@@ -1,0 +1,22 @@
+<div class="hidden">
+    <div id="callback-modal">
+        <div class="h1">Обратный звонок</div>
+        <div class="app-text mb-2">
+            <p>Вы можете связаться с нами по телефону +375 44 777–11–11 в мессенджерах Viber, WhatsApp, Telegram или оставить заявку и мы сами свяжемся с Вами</p>
+        </div>
+        {{> components/ordering-form }}
+    </div>
+</div>
+<button class="app-btn btn-primary btn-size-m js-callback-button" data-modal="callback-modal">
+    <span>Обратный звонок</span>
+</button>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.js-callback-button').forEach(button => {
+            const {modal: modalId, closable: isClosable = true} = button.dataset;
+            const modal = new AppModal(modalId);
+            modal.setClosable(isClosable)
+            button.addEventListener('click', () => modal.open());
+        });
+    })
+</script>

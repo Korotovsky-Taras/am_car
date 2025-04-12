@@ -1,0 +1,22 @@
+<div class="hidden">
+    <div id="eval-modal">
+        <div class="h1">Оценить авто</div>
+        <div class="app-text mb-2">
+            <p>Поставить авто на комиссию очень просто. Отправьте нам заявку и в ближайшее время с вами свяжется специалист</p>
+        </div>
+        {{> components/eval-form }}
+    </div>
+</div>
+<button class="app-btn btn-primary btn-size-m js-eval-button" data-modal="eval-modal">
+    <span>Оценить авто</span>
+</button>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.js-eval-button').forEach(button => {
+            const {modal: modalId, closable: isClosable = true} = button.dataset;
+            const modal = new AppModal(modalId);
+            modal.setClosable(isClosable)
+            button.addEventListener('click', () => modal.open());
+        });
+    })
+</script>

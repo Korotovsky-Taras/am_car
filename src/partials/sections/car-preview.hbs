@@ -1,0 +1,56 @@
+<section class="app-car-preview app-page--mt">
+    <div class="app-container-holder">
+        <div class="app-container">
+
+            <div class="app-crumbs"><a href="/"><span>Главная</span></a><span> \ </span></div>
+
+            <div class="app-car-preview__grid">
+                <div class="car-preview__title">
+                    <h2>Jaguar I-Pace I</h2>
+                </div>
+                <div class="car-preview__info">
+                    <div>
+                        <s>126 800 BYN</s>
+                        <h2>96 787 BYN</h2>
+                        <span>В лизинг от 914 BYN / мес.</span>
+                    </div>
+                </div>
+                <div class="car-preview__tools">
+                    {{#if (eq in 'stock')}}
+                        <div>
+                            <div><span>+375 44 744 41 11</span></div>
+                            <div><span>с 9.00 до 21:00</span></div>
+                            <div class="--right"><span>Минск, ул. Ленина 27 ТЦ "Ленинград" паркинг 2 этаж</span></div>
+                        </div>
+                    {{/if}}
+                    {{#or (eq in 'usa') (eq in 'transit')}}
+                        {{> components/button-order }}
+                    {{/or}}
+                </div>
+                <div class="app-car-preview__slider">
+                    <swiper-container init="false" data-space="8" class="js-default-swiper">
+                        <div slot="container-start">
+                            <button class="app-btn btn-slider btn-size-xl swiper-left app-desktop-visible">
+                                <svg width="9" height="24">
+                                    <use xlink:href="/app-sprite.svg#arrow-left"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div slot="container-end">
+                            <button class="app-btn btn-slider btn-size-xl swiper-right app-desktop-visible">
+                                <svg width="9" height="24">
+                                    <use xlink:href="/app-sprite.svg#arrow-right"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-1.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-2.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-1.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-2.jpg"></div></swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

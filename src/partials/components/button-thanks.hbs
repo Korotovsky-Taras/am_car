@@ -1,0 +1,22 @@
+<div class="hidden">
+    <div id="thanks-modal">
+        <div class="h1">Спасибо за заявку</div>
+        <div class="app-text mb-2">
+            <p>В ближайшее время с вами свяжется менеджер Компании. </p>
+        </div>
+        <button class="app-btn btn-mobile-full btn-size-m btn-primary js-modal-close"><span>Закрыть</span></button>
+    </div>
+</div>
+<button class="app-btn btn-primary btn-size-m js-thanks-button" data-modal="thanks-modal">
+    <span>Обратный звонок</span>
+</button>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.js-thanks-button').forEach(button => {
+            const {modal: modalId, closable: isClosable = true} = button.dataset;
+            const modal = new AppModal(modalId);
+            modal.setClosable(isClosable)
+            button.addEventListener('click', () => modal.open());
+        });
+    })
+</script>

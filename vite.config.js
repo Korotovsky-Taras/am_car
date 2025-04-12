@@ -39,7 +39,8 @@ export default {
         handlebars({
             partialDirectory: resolve(__dirname, 'src/partials'),
             helpers: {
-                eq: (a,b) => a === b
+                eq: (a,b) => a === b,
+                or: (a, b, options) =>  a || b ? options.fn(this) : options.inverse(this)
             }
         }),
     ],

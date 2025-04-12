@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             spaceBetween: 8,
             breakpoints: {
                 1024: {
-                    spaceBetween: 32,
+                    spaceBetween: swiper.dataset.space || 32,
                 },
             },
             injectStyles: [
