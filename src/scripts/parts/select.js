@@ -418,7 +418,7 @@ class AppSelect {
             }
             parent = parent.parentElement;
         }
-        return document.scrollingElement || document.documentElement;
+        return document.body;
     }
 
     closePopup() {
