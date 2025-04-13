@@ -18,6 +18,8 @@
     --cl-tR5: #282727;
 
     --cl-bR1: #DDDBDA;
+    --cl-bR2: #F4F3F3;
+    --cl-bR3: #F8F2EE;
 
     --max-width: 1872px;
 
@@ -30,6 +32,7 @@
     --input-top: 12px;
     --input-pl-top: 24px;
     --input-color: #3E3D40;
+    --input-bg: transparent;
     --input-shadow-color: var(--cl-pR1);
     --input-active-shadow-color: var(--cl-pR1);
     --input-placeholder-color: #{rgba(#3E3D40, 0.32)};
@@ -83,7 +86,13 @@
 
     @include mixin.mq-max(sm) {
         --content-gap: 24px;
+        --h2-fs: 24px;
+        --h1-fs: 32px;
     }
+}
+
+* {
+    box-sizing: border-box;
 }
 
 input:-webkit-autofill,
@@ -218,6 +227,7 @@ html.ovhidden body {
 
 .app-wrapper {
     min-height: 100vh;
+    min-width: 350px;
 }
 
 .app-section--mt {

@@ -106,12 +106,3 @@
         font-size: 14px;
     }
 }
-
-.app-offer--item-mt {
-    margin-top: 32px;
-
-    @include mixin.mq-max(md) {
-        margin-top: 24px;
-    }
-
-}

@@ -1,0 +1,43 @@
+<section class="app-car-description app-section--mt">
+    <div class="app-container-holder">
+        <div class="app-container">
+            <div class="app-car-description__grid ">
+                <div class="app-car-description__col">
+                    <div class="h1">Описание</div>
+                    <div class="app-text mt-3">
+                        <p>Автомобиль из Нидерландов</p>
+                        <p>Комплектация SE</p>
+                        <p>Весь в родной краске (проверялся толшиномером)</p>
+                        <p>Кузов на 94% состоит из алюминия, капот, крылья и крышка багажника пластиковые</p>
+                        <p>2 кабеля зарядки (от домашней сети 2,4 кВт/ч)</p>
+                        <p>Полный привод (2 синхронных электродвигателя на каждой оси, мощность каждого — 200 л.с.)</p>
+                        <p>400 л.с. и 696 Нм разгоняют авто до 100км/ч за 4,6с!</p>
+                        <p>Гарантия на батарею 8 лет или 160 тыс. км</p>
+                        <p>Подключено мобильное приложение Jaguar с проплаченным аккаунтом, которое позволяет удаленно, не зависимо как далеко автомобиль находится от вас, управлять климат-контролем, зарядкой, открытием автомобиля и т.д</p>
+                        <p>2 ключа</p>
+                        <p>Посмотреть данный автомобиль можно по адресу улица Ленина 27, ТЦ Ленинград ,верхний этаж паркинга.</p>
+                        <p>Для просмотра авто предварительно согласовать показ по номеру телефона указанному в объявлении!!</p>
+                    </div>
+                    {{#if (eq car-in 'stock')}}
+                        <a href="#" class="app-btn btn-secondary btn-size-m mt-4">
+                            <span>Место осмотра автомобиля</span>
+                            <svg width="17" height="24">
+                                <use xlink:href="/app-sprite.svg#pin"></use>
+                            </svg>
+                        </a>
+                    {{/if}}
+                </div>
+                <div class="app-car-description__col">
+                    {{#if (eq car-in 'stock')}}
+                        {{> components/car-config}}
+                    {{/if}}
+                    {{#or (eq car-in 'usa') (eq car-in 'transit')}}
+                        <div class="app-conditions__container">
+                            {{> components/car-condition-grid}}
+                        </div>
+                    {{/or}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

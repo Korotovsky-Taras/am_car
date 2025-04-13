@@ -1,0 +1,25 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-car-description {
+}
+
+.app-car-description__grid {
+    display: flex;
+    flex-direction: column;
+    column-gap: 32px;
+    row-gap: 72px;
+    max-width: 100%;
+
+    @include mixin.mq-min(md) {
+        flex-direction: row;
+        .app-car-description__col {
+            flex: 1;
+        }
+    }
+}
+
+.app-car-description__col {
+    max-width: 100%;
+}

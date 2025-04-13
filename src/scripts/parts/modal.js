@@ -131,6 +131,10 @@ class AppModal {
         this.closable = state;
     }
 
+    setCustomStyle(style, add= true) {
+        this.modalElement.classList.toggle(style, add);
+    }
+
 
 }
 

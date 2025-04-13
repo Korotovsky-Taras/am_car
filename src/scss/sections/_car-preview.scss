@@ -16,6 +16,14 @@
             width: var(--slide-width);
         }
     }
+
+    @include mixin.mq-max(lg) {
+        --slide-width: 420px;
+    }
+
+    @include mixin.mq-max(md) {
+        --slide-width: 312px;
+    }
 }
 
 .app-car-preview__slider-img {
@@ -42,6 +50,180 @@
     }
 }
 
-.app-car-preview__grid {
+.app-car-preview__header {
+    display: grid;
+    position: relative;
+}
 
+.app-car-preview__grid {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.app-car-preview__tools {
+    @include mixin.mq-max(md) {
+        margin-left: calc(-1 * var(--content-gap));
+        margin-right: calc(-1 * var(--content-gap));
+        padding-left: var(--content-gap);
+        padding-right: var(--content-gap);
+        white-space: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-padding: 0 var(--content-gap);
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        .app-car-preview__tools-item {
+            scroll-snap-align: start;
+        }
+
+    }
+    @include mixin.mq-min(md) {
+        display: flex;
+        gap: 8px;
+
+        > .--right {
+            margin-left: auto;
+        }
+
+        &.--right {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    @include mixin.mq-max(sm) {
+        .app-btn {
+            width: 100%;
+        }
+    }
+}
+
+.app-car-preview__tools-item {
+    --item-fs: 14px;
+    --item-padding: 24px;
+    --item-size: 48px;
+
+    display: inline-flex;
+    height: var(--item-size);
+    vertical-align: top;
+    align-items: center;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 0 var(--item-padding);
+    border-radius: var(--item-size);
+    @include typography.unbounded(var(--item-fs));
+    box-shadow: inset 0 0 0 1px var(--cl-bR1);
+
+    svg {
+        height: 50%;
+        width: auto;
+        color: var(--cl-pR1);
+    }
+
+    @include mixin.mq-max(md) {
+        --item-size: 40px;
+        --item-padding: 16px;
+        --item-fs: 11px;
+    }
+}
+
+.app-car-preview__info {
+    font-size: 16px;
+    white-space: nowrap;
+    color: var(--cl-tR1);
+    position: relative;
+
+    .h1 {
+        span {
+            color: var(--cl-pR1);
+        }
+    }
+
+
+    @include mixin.mq-max(md) {
+        font-size: 12px;
+    }
+}
+
+.app-car-preview__options {
+    display: grid;
+    grid-row-gap: 30px;
+    grid-column-gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+    @include mixin.mq-max(sm) {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        grid-column-gap: 14px;
+    }
+}
+
+.app-car-preview__options-item {
+    display: flex;
+    flex-direction: column;
+
+    svg {
+        color: var(--cl-pR1);
+        margin-bottom: 16px;
+    }
+    p {
+        color: var(--text-color);
+    }
+    b {
+        color: var(--cl-tR5);
+        @include typography.unbounded(16px, 400)
+    }
+
+    @include mixin.mq-max(md) {
+        p {
+            font-size: 14px;
+        }
+        b {
+            font-size: 11px;
+        }
+    }
+}
+
+
+@include mixin.mq-min(md) {
+
+    .app-car-preview__title {
+        padding-right: 30%;
+        order: 0;
+    }
+
+    .app-car-preview__header {
+        order: 1;
+    }
+
+    .app-car-preview__info {
+        text-align: right;
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+
+        > .--absolute-top {
+            position: absolute;
+            bottom: 100%;
+            width: 100%;
+            right: 0;
+        }
+        > .--absolute-bottom {
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            right: 0;
+        }
+    }
+
+    .app-car-preview__slider {
+        order: 2;
+    }
+
+    .app-car-preview__options {
+        order: 3;
+    }
 }

@@ -1,0 +1,193 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-swiper-zoom--enabled {
+    position: relative;
+
+    swiper-slide:hover {
+        .app-swiper-zoom-button {
+            visibility: visible;
+        }
+    }
+}
+
+.app-modal-swiper-zoom {
+    --modal-max: 100%;
+    width: 100%;
+    display: block;
+
+    .app-modal__content,
+    .app-modal__wrapper {
+        height: 100%;
+    }
+    .app-modal__wrapper {
+        border-radius: 0;
+    }
+
+    @include mixin.mq-min(md) {
+        --modal-close-size: 40px;
+    }
+}
+
+.app-swiper-zoom-button {
+    --zoom-size: 56px;
+
+    visibility: hidden;
+    position: absolute;
+    left: 2em;
+    bottom: 2em;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: var(--zoom-size);
+    height: var(--zoom-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: white;
+    }
+    svg {
+        width: 50%;
+        height: 50%;
+    }
+
+    @include mixin.mq-max(md) {
+        --zoom-size: 40px;
+    }
+}
+
+
+.app-swiper-zoom-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.app-swiper-zoom-main-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.app-swiper-zoom-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.app-swiper-zoom-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.app-swiper-zoom-counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.app-swiper-zoom-prev,
+.app-swiper-zoom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.app-swiper-zoom-prev {
+    left: 0;
+}
+
+.app-swiper-zoom-next {
+    right: 0;
+}
+
+.app-swiper-zoom-thumbnails {
+    --thumb-gap: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--thumb-gap);
+    width: 100%;
+    height: 80px;
+    min-height: 80px;
+    margin-top: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 0 var(--thumb-gap);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-sizing: border-box;
+
+    .app-swiper-zoom-thumbnail {
+        scroll-snap-align: start;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+        background: transparent;
+    }
+}
+
+.app-swiper-zoom-thumbnail {
+    height: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s ease-out;
+    overflow: hidden;
+    opacity: 0.5;
+
+    &.active {
+        opacity: 1;
+    }
+}
+
+
+.app-swiper-zoom-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@include mixin.mq-max(sm) {
+    .app-swiper-zoom-prev,
+    .app-swiper-zoom-next {
+        width: 48px;
+        height: 48px;
+    }
+    .app-swiper-zoom-thumbnails {
+        height: 60px;
+    }
+    .app-swiper-zoom-button {
+        visibility: visible;
+    }
+}

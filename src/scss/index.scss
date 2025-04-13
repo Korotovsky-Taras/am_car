@@ -4,7 +4,6 @@
 
 @use "app";
 @use "buttons";
-@use "form";
 @use "header";
 @use "footer";
 @use "swiper";
@@ -13,7 +12,10 @@
 
 @use "components/modal";
 @use "components/select";
+@use "components/input";
 @use "components/stock-thumb";
+@use "components/swiper-zoom";
+@use "components/car-config";
 
 @use "sections/main-banner";
 @use "sections/cars-in-stock";
@@ -30,5 +32,8 @@
 @use "sections/about-banner";
 @use "sections/blog";
 @use "sections/car-preview";
+@use "sections/car-description";
+@use "sections/car-conditions";
+@use "sections/car-shipping";
 
 

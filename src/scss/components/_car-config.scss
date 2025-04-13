@@ -1,0 +1,94 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-car-config {
+    --item-v-indent: 24px;
+    --item-h-indent: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.app-car-config__item {
+    --animate-dur: 0.2s;
+
+    transition: padding-bottom var(--animate-dur) ease-out;
+
+    .app-car-config__item-content {
+        transition-property: opacity, transform;
+        transition-duration: var(--animate-dur);
+        transition-timing-function: ease-out;
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    &:has(input:checked) {
+        padding-bottom: var(--item-indent);
+
+        .app-car-config__item-wrapper {
+            grid-template-rows: 1fr;
+        }
+        .app-car-config__item-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .app-car-config__item-link {
+            background-color: var(--cl-bR3);
+
+            svg {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+}
+
+
+.app-car-config__item-link {
+    transition-property: color, padding-bottom;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    @include typography.unbounded(16px);
+    border-radius: 16px;
+    color: var(--cl-tR2);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    background-color: var(--cl-bR2);
+    padding: var(--item-v-indent) var(--item-h-indent);
+
+    svg {
+        margin-left: auto;
+        color: #645D58;
+    }
+}
+
+.app-car-config__item-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.app-car-config__item-content {
+    overflow: hidden;
+}
+
+.app-car-config__option {
+    display: flex;
+    gap: 8px;
+    padding: var(--item-v-indent) var(--item-h-indent);
+
+    ~ .app-car-config__option {
+        box-shadow: 0 -1px 0 var(--cl-bR1);
+    }
+
+    @include mixin.mq-min(sm) {
+        > * {
+            flex: 1;
+        }
+    }
+}

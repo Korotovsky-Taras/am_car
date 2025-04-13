@@ -45,7 +45,7 @@
     @media (hover: hover) {
         &:hover {
             transition-property: color, background-color;
-            transition-duration: 0.15s ;
+            transition-duration: 0.2s;
             transition-timing-function: ease-out;
             color: var(--btn-hover-color);
             background: var(--btn-hover-background);
@@ -54,7 +54,7 @@
 
     &:active {
         transition-property: color, background-color;
-        transition-duration: 0.15s ;
+        transition-duration: 0.2s;
         transition-timing-function: ease-out;
         color: var(--btn-active-color);
         background: var(--btn-active-background);
@@ -66,6 +66,18 @@
     > * + svg,
     > svg + * {
         margin-left: var(--btn-icon-indent);
+    }
+
+    @include mixin.mq-max(sm) {
+        max-width: 100%;
+
+        > span {
+            display: block;
+            overflow: hidden;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     }
 }
 

@@ -51,6 +51,10 @@
         <path fill="currentColor" d="M.293 4.293a1 1 0 0 1 1.414 0l7 7a1 1 0 0 1 0 1.414l-7 7a1 1 0 1 1-1.414-1.414L6.585 12 .293 5.707a1 1 0 0 1-.083-1.32l.083-.094z"/>
     </symbol>
 
+    <symbol viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="zoom">
+        <path fill="currentColor" d="M9 2a9 9 0 0 1 7.175 14.434l-.143.183 3.676 3.676a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.415 0l-3.676-3.676-.183.144a8.957 8.957 0 0 1-5.169 1.821L9 20A9 9 0 1 1 9 2zm0 2a7 7 0 1 0 4.789 12.106l.081-.08.073-.083.088-.079.075-.075a6.974 6.974 0 0 0 1.89-4.548L16 11a7 7 0 0 0-7-7z"/>
+    </symbol>
+
     <symbol viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="menu">
         <path fill="currentColor" d="M19 17a1 1 0 0 1 0 2H1a1 1 0 0 1 0-2h18zm0-6a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2h18zm0-6a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2h18z"/>
     </symbol>

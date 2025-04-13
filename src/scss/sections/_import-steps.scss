@@ -44,7 +44,6 @@
 
 .app-import-steps__list {
     counter-reset: section;
-
 }
 
 .app-import-steps__item {
@@ -78,7 +77,7 @@
 .app-import-steps__link {
     font-weight: bold;
     transition-property: color, padding-bottom;
-    transition-duration: 0.3s;
+    transition-duration: 0.2s;
     transition-timing-function: ease-out;
     @include typography.unbounded(18px);
     color: var(--cl-tR3);

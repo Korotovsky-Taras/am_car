@@ -24,19 +24,24 @@
 
     .app-select__view {
         padding-top: var(--input-pl-top);
-        transition-property: color;
+        transition-property: var(--input-bg);
         transition-timing-function: ease-out;
-        transition-duration: 0.3s;
+        transition-duration: 0.2s;
         color: transparent;
 
         &[data-count] {
-            color: inherit;
+            color: var(--input-color);
         }
     }
 
-    .app-select__view:not([data-count]) ~ .app-select__placeholder {
-        transform: translateY(12px);
-        font-size: 16px;
+    .app-select__view:not([data-count]) {
+        &:after {
+            color: var(--input-placeholder-color);
+        }
+        ~ .app-select__placeholder {
+            transform: translateY(12px);
+            font-size: 16px;
+        }
     }
 
     .app-select__placeholder {
@@ -47,7 +52,7 @@
         color: var(--input-placeholder-color);
         transition-property: transform, font-size;
         transition-timing-function: ease-out;
-        transition-duration: 0.3s;
+        transition-duration: 0.2s;
         font-size: 12px;
         pointer-events: none;
         white-space: nowrap;
@@ -60,7 +65,8 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: white;
+    transition-property: var(--input-bg);
+    color: var(--input-color);
     border-radius: 8px;
     position: relative;
     padding: 12px 40px 12px var(--input-left);
@@ -72,8 +78,8 @@
 
 .app-select__view::after {
     content: '';
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-right: 1px solid;
     border-bottom: 1px solid;
     transform: rotate(45deg);
@@ -84,7 +90,7 @@
 }
 
 .app-select__placeholder {
-
+    color: var(--input-placeholder-color);
 }
 
 

@@ -1,34 +1,16 @@
 <section class="app-car-preview app-page--mt">
     <div class="app-container-holder">
         <div class="app-container">
-
             <div class="app-crumbs"><a href="/"><span>Главная</span></a><span> \ </span></div>
 
             <div class="app-car-preview__grid">
-                <div class="car-preview__title">
-                    <h2>Jaguar I-Pace I</h2>
+
+                <div class="app-car-preview__title">
+                    <h1>{{ car-title }}</h1>
                 </div>
-                <div class="car-preview__info">
-                    <div>
-                        <s>126 800 BYN</s>
-                        <h2>96 787 BYN</h2>
-                        <span>В лизинг от 914 BYN / мес.</span>
-                    </div>
-                </div>
-                <div class="car-preview__tools">
-                    {{#if (eq in 'stock')}}
-                        <div>
-                            <div><span>+375 44 744 41 11</span></div>
-                            <div><span>с 9.00 до 21:00</span></div>
-                            <div class="--right"><span>Минск, ул. Ленина 27 ТЦ "Ленинград" паркинг 2 этаж</span></div>
-                        </div>
-                    {{/if}}
-                    {{#or (eq in 'usa') (eq in 'transit')}}
-                        {{> components/button-order }}
-                    {{/or}}
-                </div>
-                <div class="app-car-preview__slider">
-                    <swiper-container init="false" data-space="8" class="js-default-swiper">
+
+                <div class="app-car-preview__slider mt-3">
+                    <swiper-container init="false" data-space="8" class="js-default-swiper js-swiper-zoom">
                         <div slot="container-start">
                             <button class="app-btn btn-slider btn-size-xl swiper-left app-desktop-visible">
                                 <svg width="9" height="24">
@@ -43,12 +25,106 @@
                                 </svg>
                             </button>
                         </div>
-                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-1.jpg"></div></swiper-slide>
-                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-2.jpg"></div></swiper-slide>
-                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-1.jpg"></div></swiper-slide>
-                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ in }}-2.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ car-in }}-1.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ car-in }}-2.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ car-in }}-1.jpg"></div></swiper-slide>
+                        <swiper-slide><div class="app-car-preview__slider-img"><img src="./images/car-{{ car-in }}-2.jpg"></div></swiper-slide>
                     </swiper-container>
                 </div>
+
+                <div class="app-car-preview__header">
+                    <div class="app-car-preview__info mt-2">
+                        {{#if (eq car-in 'stock')}}
+                            <div class="--absolute-top"><s>126 800 BYN</s></div>
+                        {{/if}}
+                        {{#or (eq car-in 'usa') (eq car-in 'transit')}}
+                            <div class="--absolute-top">от</div>
+                        {{/or}}
+                        <div class="h1">96 787 <span>BYN</span></div>
+                        {{#if (eq car-in 'stock')}}
+                            <span class="--absolute-bottom">В лизинг от 914 BYN / мес.</span>
+                        {{/if}}
+                        {{#or (eq car-in 'usa') (eq car-in 'transit')}}
+                            <span class="--absolute-bottom">≈ $7650 без доставки и растаможки</span>
+                        {{/or}}
+
+                    </div>
+                    {{#if (eq car-in 'stock')}}
+                        <div class="app-car-preview__tools mt-4 --full">
+                            <div class="app-car-preview__tools-item">
+                                <svg width="20" height="24">
+                                    <use xlink:href="/app-sprite.svg#phone"></use>
+                                </svg>
+                                <span>+375 44 744 41 11</span>
+                            </div>
+                            <div class="app-car-preview__tools-item"><span>с 9.00 до 21:00</span></div>
+                            <div class="app-car-preview__tools-item --right">
+                                <svg width="17" height="24">
+                                    <use xlink:href="/app-sprite.svg#pin"></use>
+                                </svg>
+                                <span>Минск, ул. Ленина 27 ТЦ "Ленинград" паркинг 2 этаж</span>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#or (eq car-in 'usa') (eq car-in 'transit')}}
+                        <div class="app-car-preview__tools mt-4 --right">
+                            {{> components/button-order }}
+                        </div>
+                    {{/or}}
+                </div>
+
+
+                <div class="app-car-preview__options mt-4">
+                        <div class="app-car-preview__options-item">
+                            <svg width="35" height="40">
+                                <use xlink:href="/app-sprite.svg#engine"></use>
+                            </svg>
+                            <p><b>Двигатель</b></p>
+                            <p>2.0T Бензин</p>
+                        </div>
+                        <div class="app-car-preview__options-item">
+                            <svg width="24" height="40">
+                                <use xlink:href="/app-sprite.svg#lucide"></use>
+                            </svg>
+                            <p><b>Коробка</b></p>
+                            <p>8AT</p>
+                        </div>
+                        <div class="app-car-preview__options-item">
+                            <svg width="30" height="40">
+                                <use xlink:href="/app-sprite.svg#speed"></use>
+                            </svg>
+                            <p><b>Пробег</b></p>
+                            <p>156 000 км</p>
+                        </div>
+                        <div class="app-car-preview__options-item">
+                            <svg width="34" height="40">
+                                <use xlink:href="/app-sprite.svg#car"></use>
+                            </svg>
+                            <p><b>Год выпуска</b></p>
+                            <p>2023</p>
+                        </div>
+                        <div class="app-car-preview__options-item">
+                            <svg width="30" height="40">
+                                <use xlink:href="/app-sprite.svg#wheel"></use>
+                            </svg>
+                            <p><b>Привод</b></p>
+                            <p>Полный</p>
+                        </div>
+                        <div class="app-car-preview__options-item">
+                            <svg width="28" height="40">
+                                <use xlink:href="/app-sprite.svg#battery"></use>
+                            </svg>
+                            <p><b>Батарея</b></p>
+                            <p>100 кВт/ч</p>
+                        </div>
+                        <div class="app-car-preview__options-item">
+                            <svg width="30" height="40">
+                                <use xlink:href="/app-sprite.svg#letter"></use>
+                            </svg>
+                            <p><b>Запас хода</b></p>
+                            <p>635 км</p>
+                        </div>
+                    </div>
             </div>
 
         </div>
