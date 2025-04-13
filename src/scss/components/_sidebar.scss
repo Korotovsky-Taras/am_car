@@ -1,0 +1,102 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+
+.app-sidebar {
+    position: fixed;
+    background: white;
+    max-width: 100%;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    z-index: calc(var(--h-index) + 1);
+
+    &.init {
+        will-change: transform;
+        transition: transform 0.3s ease;
+    }
+
+    &.expanded {
+        transform: translateX(0);
+
+        .app-sidebar__nav-btn-wrap {
+            transition-timing-function: ease;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        @for $i from 1 through 10 {
+            .app-sidebar__nav-btn-wrap:nth-child(#{$i}) {
+                transition-delay: 0.05s + $i * 0.15s;
+            }
+        }
+    }
+
+    .app-sidebar__close {
+        width: 24px;
+        height: 24px;
+        right: 24px;
+        top: 24px;
+        position: absolute;
+        color: var(--cl-tR1)
+    }
+
+    .app-footer-social {
+        padding: var(--content-gap);
+    }
+}
+
+
+.app-sidebar__header {
+    @include typography.unbounded(16px, 500);
+    display: flex;
+    height: 68px;
+    min-height: 68px;
+    align-items: center;
+    padding: 0 var(--content-gap);
+    color: var(--cl-tR1)
+}
+
+.app-sidebar__scroll {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    row-gap: 8px;
+    padding-left: var(--content-gap);
+    padding-right: var(--content-gap);
+    padding-bottom: 32px;
+
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.app-sidebar-nav__main {
+    row-gap: 20px;
+}
+
+
+.app-sidebar__link {
+    padding: 10px 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    transition: color 0.3s;
+
+    &:active {
+        color: var(--cl-pR1);
+    }
+
+    .app-sidebar-nav__main & {
+        @include typography.unbounded(16px)
+    }
+}
