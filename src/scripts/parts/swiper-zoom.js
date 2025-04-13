@@ -149,14 +149,14 @@ class AppSwiperZoom {
     _createNextButton() {
         const btn = document.createElement('button');
         btn.className = `app-btn btn-slider btn-size-xl  app-desktop-visible ${this.#NEXT_BUTTON_SELECTOR}`;
-        btn.innerHTML = `<svg width="9" height="24"><use xlink:href="/app-sprite.svg#arrow-right"></use></svg>`;
+        btn.innerHTML = `<svg width="9" height="24"><use xlink:href="./app-sprite.svg#arrow-right"></use></svg>`;
         return btn;
     }
     
     _createZoomButton() {
         const btn = document.createElement('button');
         btn.className = this.#ZOOM_BUTTON_SELECTOR;
-        btn.innerHTML = `<svg width="24" height="24"><use xlink:href="/app-sprite.svg#zoom"></use></svg>`;
+        btn.innerHTML = `<svg width="24" height="24"><use xlink:href="./app-sprite.svg#zoom"></use></svg>`;
         return btn;
     }
     

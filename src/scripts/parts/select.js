@@ -58,7 +58,7 @@ class AppSelect {
 
     _createResetButton(text) {
         const btn = document.createElement('button');
-        btn.innerHTML = `<span>${text}</span> <svg width="14" height="24"><use xlink:href="/app-sprite.svg#close"></use></svg>`;
+        btn.innerHTML = `<span>${text}</span> <svg width="14" height="24"><use xlink:href="./app-sprite.svg#close"></use></svg>`;
         btn.className = this.#POPUP_HEADER_RESET_SELECTOR;
         return btn;
     }
