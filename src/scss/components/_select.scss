@@ -35,9 +35,6 @@
     }
 
     .app-select__view:not([data-count]) {
-        &:after {
-            color: var(--input-placeholder-color);
-        }
         ~ .app-select__placeholder {
             transform: translateY(12px);
             font-size: 16px;
@@ -87,6 +84,7 @@
     right: 16px;
     top: calc(50% - 7px);
     transition: transform 0.2s ease;
+    color: var(--input-color);
 }
 
 .app-select__placeholder {
@@ -172,6 +170,10 @@
 .app-select__popup-options {
     max-height: 300px;
     overflow-y: auto;
+    padding-left: var(--popup-inner-v-indent);
+    padding-right: var(--popup-inner-v-indent);
+    margin-left: calc(-1*var(--popup-inner-v-indent));
+    margin-right: calc(-1*var(--popup-inner-v-indent));
 }
 
 .app-select__optgroup {
@@ -247,7 +249,7 @@
         width: 100%!important;
         height: 100dvh!important;
         max-height: 100dvh!important;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.8);
         border-radius: 0;
         display: flex;
         flex-direction: column;

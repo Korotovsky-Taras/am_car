@@ -1,0 +1,22 @@
+<div class="hidden">
+    <div id="car-filters-modal">
+        {{> components/modal-filters-form }}
+    </div>
+</div>
+<button class="app-btn btn-size-m btn-primary btn-full js-car-filters-button" data-modal="car-filters-modal">
+    <span>Параметры авто</span>
+    <svg width="20" height="24">
+        <use xlink:href="/app-sprite.svg#settings"></use>
+    </svg>
+</button>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.js-car-filters-button').forEach(button => {
+            const {modal: modalId, closable: isClosable = true} = button.dataset;
+            const modal = new AppModal(modalId);
+            modal.setClosable(isClosable)
+            modal.setCustomStyle("app-modal-filters")
+            button.addEventListener('click', () => modal.open());
+        });
+    })
+</script>

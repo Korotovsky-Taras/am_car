@@ -17,12 +17,23 @@ class AppSelect {
 
     #POPUP_ANCHOR_SELECTOR = 'app-select__view';
     #POPUP_ANCHOR_STYLE = '.' + this.#POPUP_ANCHOR_SELECTOR;
+    #POPUP_PLACEHOLDER_SELECTOR = 'app-select__placeholder';
+    #WITH_PLACEHOLDER_CLASS = 'app-select--with-placeholder';
+    #WITH_COUNT_CLASS = 'app-select--with-count';
 
     constructor(el) {
         this.el = el;
         this.activePopup = null;
         this.selectedItems = new Set();
         this.initialSelectedItems = new Set();
+
+        const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
+        this.initialTitle = selectView ? selectView.textContent : '';
+
+        const select = this.el.querySelector('select');
+        const placeholderOption = select ? select.querySelector('option[value="placeholder"]') : null;
+        this.initialPlaceholder = placeholderOption ? placeholderOption.textContent : '';
+        
         this.init();
     }
 
@@ -37,6 +48,13 @@ class AppSelect {
         title.className = this.#POPUP_HEADER_TITLE_SELECTOR;
         return title;
     }
+    
+    _createPlaceholder(text) {
+        const placeholder = document.createElement('div');
+        placeholder.className = this.#POPUP_PLACEHOLDER_SELECTOR;
+        placeholder.textContent = text;
+        return placeholder;
+    }
 
     _createResetButton(text) {
         const btn = document.createElement('button');
@@ -47,7 +65,6 @@ class AppSelect {
 
     init() {
         this.setupSelect();
-        this.loadInitialSelection();
 
         document.addEventListener('click', (e) => {
             if (this.activePopup) {
@@ -87,9 +104,24 @@ class AppSelect {
     setupSelect() {
         const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
         const nativeSelect = this.el.querySelector('select');
+        const placeholderOption = nativeSelect.querySelector('option[value="placeholder"]');
 
         if (nativeSelect.dataset.multichoice) {
             this.el.classList.add('multi');
+        }
+        
+        if (nativeSelect.getAttribute('data-change-view') === 'false') {
+            this.el.classList.add(this.#WITH_COUNT_CLASS);
+        }
+        
+        if (placeholderOption) {
+            this.el.classList.add(this.#WITH_PLACEHOLDER_CLASS);
+        }
+        
+        let placeholderElement = this.el.querySelector(`.${this.#POPUP_PLACEHOLDER_SELECTOR}`);
+        if (!placeholderElement && this.initialPlaceholder) {
+            placeholderElement = this._createPlaceholder(this.initialPlaceholder);
+            selectView.after(placeholderElement);
         }
 
         if (selectView) {
@@ -139,7 +171,6 @@ class AppSelect {
 
         this.initialSelectedItems = new Set(this.selectedItems);
 
-        // Создаем popup
         const popup = document.createElement('div');
         const popupContent = document.createElement('div');
         popup.className = this.#POPUP_SELECTOR;
@@ -150,8 +181,7 @@ class AppSelect {
             const header = document.createElement('div');
             header.className = this.#POPUP_HEADER_SELECTOR;
 
-            const titleText = this.el.querySelector(this.#POPUP_ANCHOR_STYLE).textContent;
-            const title = this._createHeaderTitle(titleText);
+            const title = this._createHeaderTitle(this.initialTitle);
             title.addEventListener('click', () => {
                 this.closePopup();
             })
@@ -328,8 +358,10 @@ class AppSelect {
     updateViewText(selectedTexts) {
         const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
         const select = this.el.querySelector('select');
+        const placeholderElement = this.el.querySelector(`.${this.#POPUP_PLACEHOLDER_SELECTOR}`);
 
         const changeView = !select.hasAttribute('data-change-view') || select.getAttribute('data-change-view') !== 'false';
+        const useTitleAsPlaceholder = select.getAttribute('data-change-view') === 'true';
 
         if (!selectedTexts) {
             selectedTexts = [];
@@ -350,6 +382,10 @@ class AppSelect {
                 if (changeView) {
                     selectView.innerHTML = `<span class="ellipsis">${selectedTexts.join(", ")}</span>`;
                 }
+                
+                if (placeholderElement && useTitleAsPlaceholder) {
+                    placeholderElement.textContent = this.initialTitle;
+                }
             } else {
                 delete selectView.dataset.count;
 
@@ -358,6 +394,10 @@ class AppSelect {
                     if (placeholderOption) {
                         selectView.textContent = placeholderOption.textContent;
                     }
+                }
+                
+                if (placeholderElement && useTitleAsPlaceholder) {
+                    placeholderElement.textContent = this.initialPlaceholder;
                 }
             }
         }

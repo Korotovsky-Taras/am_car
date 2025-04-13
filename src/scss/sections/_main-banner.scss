@@ -168,21 +168,18 @@
 }
 
 .app-banner__page-item {
+    --page-banner-bottom: 72px;
+
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
-    align-items: flex-start;
     justify-content: flex-end;
     flex-direction: column;
     box-sizing: border-box;
-    padding-bottom: 72px;
-
-    @include mixin.mq-max(md) {
-        padding-bottom: 48px;
-    }
+    padding-bottom: var(--page-banner-bottom);
 
     .app-crumbs {
         color: inherit;
@@ -202,6 +199,7 @@
     }
 
     @include mixin.mq-max(md) {
+        --page-banner-bottom: 48px;
         justify-content: flex-end;
 
         .text {

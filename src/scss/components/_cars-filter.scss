@@ -1,0 +1,81 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-cars-filter {
+    --inner-gap: 24px;
+
+    background-color: rgba(#282727, 0.64);
+    backdrop-filter: blur(8px);
+
+    --input-color: #fff;
+    --input-shadow-color: var(--cl-pR1);
+    --input-active-shadow-color: white;
+    --input-placeholder-color: #{rgba(#fff, 0.32)};
+
+    display: grid;
+    grid-row-gap: 24px;
+    box-sizing: border-box;
+    border-radius: var(--inner-gap);
+    padding: var(--inner-gap);
+
+    width: 100%;
+
+
+    .app-banner & {
+        margin-left: calc(-1 * var(--inner-gap));
+        margin-right: calc(-1 * var(--inner-gap));
+        width: calc(100% + var(--inner-gap) * 2);
+        margin-top: variables.withRatio(80px);
+        margin-bottom: calc(-1 * var(--page-banner-bottom) - var(--inner-gap) * 2);
+    }
+
+
+    .app-input:not(.empty) {
+        --input-placeholder-color: var(--cl-tR1);
+        --input-color: var(--cl-tR1);
+        input, textarea {
+            background-color: var(--cl-pR0);
+            box-shadow: none;
+        }
+    }
+
+    .app-select__view[data-count] {
+        --input-color: var(--cl-tR1);
+        background-color: var(--cl-pR0);
+        box-shadow: none;
+    }
+
+}
+
+.app-cars-filter__top {
+    display: grid;
+    grid-row-gap: 12px;
+    grid-column-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.app-cars-filter__bottom {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-column-gap: 16px;
+}
+
+.app-cars-filter__group {
+    display: grid;
+    row-gap: 12px;
+    grid-template-columns: 80px 1fr 30px 1fr;
+}
+
+.app-cars-filter__group-spacer {
+    color: var(--input-placeholder-color);
+    align-self: center;
+    text-align: center;
+}
+
+.app-cars-filter__group-title {
+    font-weight: 500;
+    align-self: center;
+    text-align: right;
+    padding-right: 16px;
+}

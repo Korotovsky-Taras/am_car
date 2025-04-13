@@ -1,7 +1,7 @@
 class AppModal {
     constructor(contentId) {
         this.contentId = contentId;
-        this.modalContent = null;
+        this.contentNodes = null;
 
         this.isOpen = false;
         this.closable = false;
@@ -103,21 +103,27 @@ class AppModal {
         this.modalElement.remove();
     }
 
-    _getModalContentElement() {
-        if (this.modalContent == null) {
-            this.modalContent = document.getElementById(this.contentId) || null;
+
+    _insertContentNodes(addCallback) {
+        const contentNode = document.getElementById(this.contentId);
+        if (!contentNode || !contentNode.hasChildNodes()) return;
+
+        if (this.contentNodes == null) {
+            this.contentNodes = Array.from(contentNode.childNodes);
         }
-        return this.modalContent;
+
+        this.contentNodes.forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+                addCallback(node);
+            }
+        });
     }
 
     open() {
-        const contentElement = this._getModalContentElement();
-
-        if (this.isOpen || contentElement == null) return;
-
+        if (this.isOpen) return;
         this.isOpen = true;
 
-        this._addToDOM(contentElement);
+        this._insertContentNodes(nodeElement => this._addToDOM(nodeElement))
         this._animate('show');
     }
 

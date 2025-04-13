@@ -1,0 +1,100 @@
+<div class="app-modal-filter__container">
+    <div class="app-modal-filter__header">
+        <div class="app-modal-filter__header-title js-modal-close">
+            <svg width="9" height="24"><use xlink:href="/app-sprite.svg#arrow-left"></use></svg>
+            <span>Параметры</span>
+        </div>
+        <button class="app-modal-filter__header-reset">
+            <span>Сбросить фильтры</span>
+            <svg width="14" height="24"><use xlink:href="/app-sprite.svg#close"></use></svg>
+        </button>
+    </div>
+    <form class="app-modal-filter__form">
+        <div class="app-modal-filter__form-container">
+            <div class="app-select">
+                <div class="app-select__view">Марка</div>
+                <select data-multichoice="true" data-change-view="true">
+                    <option value="placeholder">Выберите марку авто</option>
+                    <option value="m1">марка 1</option>
+                    <option value="m2">марка 2</option>
+                    <option value="m3">марка 3</option>
+                    <option value="m4">марка 4</option>
+                    <option value="m5">марка 5</option>
+                    <option value="m6">марка 6</option>
+                </select>
+            </div>
+            <div class="app-select">
+                <div class="app-select__view">Модель</div>
+                <select data-multichoice="true" data-change-view="true">
+                    <optgroup label="BMW">
+                        <option value="placeholder">Выберите модель авто</option>
+                        <option value="bmw1">модель бмв 1</option>
+                        <option value="bmw2">модель бмв 2</option>
+                        <option value="bmw3">модель бмв 3</option>
+                        <option value="bmw4">модель бмв 4</option>
+                        <option value="bmw5">модель бмв 5</option>
+                        <option value="bmw6">модель бмв 6</option>
+                        <option value="bmw7">модель бмв 7</option>
+                    </optgroup>
+                    <optgroup label="Tesla">
+                        <option value="tesla1">модель тесла 1</option>
+                        <option value="tesla2">модель тесла 2</option>
+                        <option value="tesla2">модель тесла 3</option>
+                        <option value="tesla3">модель тесла 4</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="app-select">
+                <div class="app-select__view">Двигатель</div>
+                <select data-multichoice="true" data-change-view="true">
+                    <option value="placeholder">Выберите тип двигателя</option>
+                    <option value="eng1">двигатель 1</option>
+                    <option value="eng2">двигатель 2</option>
+                </select>
+            </div>
+            <div class="app-modal-filter__form-group">
+                <div class="app-input">
+                    <label><span class="app-input__placeholder">Год от</span><input type="text"></label>
+                </div>
+                <div class="app-input">
+                    <label><span class="app-input__placeholder">до</span><input type="text"></label>
+                </div>
+            </div>
+            <div class="app-select">
+                <div class="app-select__view">Коробка передач</div>
+                <select data-multichoice="true" data-change-view="true">
+                    <option value="placeholder">Выберите тип кпп</option>
+                    <option value="cpp1">кпп 1</option>
+                    <option value="cpp2">кпп 2</option>
+                </select>
+            </div>
+            <div class="app-select">
+                <div class="app-select__view">Привод</div>
+                <select data-multichoice="true" data-change-view="true">
+                    <option value="placeholder">Выберите тип привода</option>
+                    <option value="wh1">привод 1</option>
+                    <option value="wh2">привод 2</option>
+                </select>
+            </div>
+            <div class="app-modal-filter__form-group">
+                <div class="app-input">
+                    <label><span class="app-input__placeholder">Цена от, BYN</span><input type="text"></label>
+                </div>
+                <div class="app-input">
+                    <label><span class="app-input__placeholder">до, BYN</span><input type="text"></label>
+                </div>
+            </div>
+            <div class="app-modal-filter__form-group">
+                <div class="app-input">
+                    <label><span class="app-input__placeholder">Пробег от, км</span><input type="text"></label>
+                </div>
+                <div class="app-input">
+                    <label><span class="app-input__placeholder">до, км</span><input type="text"></label>
+                </div>
+            </div>
+        </div>
+        <div class="app-modal-filter__form-footer">
+            <button type="submit" class="app-btn btn-size-l btn-primary btn-full"><span>7 878 предложений</span></button>
+        </div>
+    </form>
+</div>
