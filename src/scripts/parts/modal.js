@@ -26,7 +26,7 @@ class AppModal {
 
     _createCloseButton() {
         const btn = document.createElement('button');
-        btn.innerHTML = `<svg width="14" height="24"><use xlink:href="/app-sprite.svg#close"></use></svg>`;
+        btn.innerHTML = `<svg width="14" height="24"><use xlink:href="./app-sprite.svg#close"></use></svg>`;
         btn.className = 'app-modal__close';
         return btn;
     }
