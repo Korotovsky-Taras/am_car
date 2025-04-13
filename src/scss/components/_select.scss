@@ -70,22 +70,22 @@
     box-shadow: var(--input-shadow);
     transition: all 0.2s ease;
     box-sizing: border-box;
+
+    &:after {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        transform: rotate(45deg);
+        position: absolute;
+        right: 16px;
+        top: calc(50% - 7px);
+        transition: transform 0.2s ease;
+        color: var(--input-color);
+    }
 }
 
-
-.app-select__view::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    transform: rotate(45deg);
-    position: absolute;
-    right: 16px;
-    top: calc(50% - 7px);
-    transition: transform 0.2s ease;
-    color: var(--input-color);
-}
 
 .app-select__placeholder {
     color: var(--input-placeholder-color);

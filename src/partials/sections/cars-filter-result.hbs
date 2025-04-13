@@ -1,0 +1,72 @@
+<section class="app-cars-result ">
+    <div class="app-container-holder">
+        <div class="app-container">
+            <div class="app-active-filters">
+                <div class="app-active-filter__item">
+                    <span>BMW</span>
+                    <svg width="10" height="18">
+                        <use xlink:href="/app-sprite.svg#close-sm"></use>
+                    </svg>
+                </div>
+                <div class="app-active-filter__item">
+                    <span>Бензин</span>
+                    <svg width="10" height="18">
+                        <use xlink:href="/app-sprite.svg#close-sm"></use>
+                    </svg>
+                </div>
+                <div class="app-active-filter__item">
+                    <span>Дизель</span>
+                    <svg width="10" height="18">
+                        <use xlink:href="/app-sprite.svg#close-sm"></use>
+                    </svg>
+                </div>
+                <div class="app-active-filter__item">
+                    <span>Электро</span>
+                    <svg width="10" height="18">
+                        <use xlink:href="/app-sprite.svg#close-sm"></use>
+                    </svg>
+                </div>
+                <div class="app-active-filter__item">
+                    <span>Газ</span>
+                    <svg width="10" height="18">
+                        <use xlink:href="/app-sprite.svg#close-sm"></use>
+                    </svg>
+                </div>
+                <div class="app-active-filter__item --right app-desktop-visible">
+                    <span>Сбросить фильтры</span>
+                    <svg width="10" height="18">
+                        <use xlink:href="/app-sprite.svg#close-sm"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="app-cars-result__header mt-3">
+                <b>828 предложений</b>
+                <div class="app-select">
+                    <div class="app-select__view">Сначала дешевые</div>
+                    <select data-change-view="true" data-horizontal-pos="right">
+                        <option value="1">Сначала дешевые</option>
+                        <option value="2">Сначала дорогие</option>
+                        <option value="3">Сначала новые</option>
+                        <option value="4">Сначала старые</option>
+                    </select>
+                </div>
+            </div>
+            <div class="app-cars-result__grid mt-3">
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+                {{> components/stock-thumb }}
+            </div>
+            <div class="app-cars-result__footer">
+                <button class="app-btn btn-primary btn-size-l">
+                    <span class="app-mobile-visible">Показать еще</span>
+                    <span class="app-desktop-visible">Показать еще 8 предложений</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

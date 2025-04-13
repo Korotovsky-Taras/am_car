@@ -1,0 +1,105 @@
+@use "../base/mixin";
+@use "../base/variables";
+@use "../base/typography";
+
+.app-cars-result {
+    margin-top: 80px;
+    @include mixin.mq-max(md) {
+        margin-top: 24px;
+    }
+}
+
+
+.app-active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 4px;
+
+    @include mixin.mq-min(md) {
+        .--right {
+            margin-left: auto;
+        }
+    }
+}
+
+.app-active-filter__item {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 8px;
+    font-size: 12px;
+    height: 26px;
+    border-radius: 26px;
+    padding: 0 12px;
+    color: var(--cl-tR1);
+    background-color: #F4F4F3;
+    white-space: nowrap;
+
+    svg {
+        cursor: pointer;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            transition-property: color, background-color;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-out;
+            color: white;
+            background: var(--cl-pR4);
+        }
+    }
+}
+
+.app-cars-result__header  {
+    display: flex;
+    align-items: center;
+    color: var(--cl-tR1);
+
+    .app-select {
+        margin-left: auto;
+
+        .app-select__view {
+            box-shadow: none;
+            padding-right: 30px;
+            color: var(--cl-tR1);
+
+            &:after {
+                right: 10px;
+            }
+        }
+    }
+}
+
+.app-cars-result__grid {
+    --cols: 0;
+
+    display: grid;
+    grid-column-gap: 16px;
+    grid-row-gap: 32px;
+    grid-template-columns: repeat(var(--cols), 1fr);
+
+    @include mixin.mq-min(sm) {
+        --cols: 2;
+    }
+    @include mixin.mq-min(md) {
+        --cols: 3;
+        grid-column-gap: 32px;
+        grid-row-gap: 64px;
+    }
+    @include mixin.mq-min(lg) {
+        --cols: 4;
+    }
+}
+
+.app-cars-result__footer {
+    text-align: center;
+    padding-top: 64px;
+
+    @include mixin.mq-max(md) {
+        padding-top: 32px;
+
+        .app-btn {
+            width: 100%;
+        }
+    }
+}

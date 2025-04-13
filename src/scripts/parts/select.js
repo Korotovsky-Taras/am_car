@@ -420,7 +420,7 @@ class AppSelect {
         const parentRect = scrollableParent.getBoundingClientRect();
 
         const relativeTop = selectRect.top - parentRect.top + scrollableParent.scrollTop;
-        const relativeLeft = selectRect.left - parentRect.left;
+        let relativeLeft = selectRect.left - parentRect.left;
 
         const spaceBelow = parentRect.height - (selectRect.bottom - parentRect.top);
         const spaceAbove = selectRect.top - parentRect.top;
@@ -431,6 +431,11 @@ class AppSelect {
             top = relativeTop + selectRect.height;
         } else {
             top = relativeTop - popupHeight;
+        }
+
+        const select = this.el.querySelector('select');
+        if (select.hasAttribute('data-horizontal-pos') && select.getAttribute('data-horizontal-pos') === 'right') {
+            relativeLeft = selectRect.right - popup.offsetWidth
         }
 
         const maxTop = parentRect.height - popupHeight;
