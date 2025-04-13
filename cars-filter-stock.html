@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+
+
+        <title></title>
+      <script type="module" crossorigin src="./build/chunks/app.js"></script>
+      <link rel="stylesheet" crossorigin href="./assets/app-iYuboeZX.css">
+    </head>
+<body class="">
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="app-container-holder">
+                <div class="app-container">
+                    <div class="app-header__wrapper app-desktop-visible">
+                        <a class="app-header__logo --start" href="/">
+                            <svg width="148" height="43">
+                                <use xlink:href="./app-sprite.svg#logo"></use>
+                            </svg>
+                        </a>
+                        <div class="app-header__top-menu">
+                            <nav class="app-header__nav">
+                                <a class="app-header__nav-link" href="#">
+                                    <span>Instagram</span>
+                                </a>
+                                <a class="app-header__nav-link" href="#">
+                                    <span>Telegram</span>
+                                </a>
+                                <a class="app-header__nav-link" href="/about">
+                                    <span>О компании</span>
+                                </a>
+                                <a class="app-header__nav-link" href="/contacts">
+                                    <span>Контакты</span>
+                                </a>
+                            </nav>
+                            <a href="#" class="app-btn ml-4 btn-secondary btn-size-s"><span>Заказать звонок</span></a>
+                        </div>
+                        <nav class="app-header__bottom-menu app-header__nav">
+                            <a class="app-header__nav-link active" href="#">
+                                <span>Авто в наличии</span>
+                            </a>
+                            <a class="app-header__nav-link" href="#">
+                                <span>Авто в пути</span>
+                            </a>
+                            <a class="app-header__nav-link" href="#">
+                                <span>Авто из Европы</span>
+                            </a>
+                            <a class="app-header__nav-link" href="#">
+                                <span>Авто из США</span>
+                            </a>
+                            <a class="app-header__nav-link --end" href="#">
+                                <span>Оценить авто</span>
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="app-header-mobile app-header__wrapper app-mobile-visible">
+                        <span class="app-header__menu app-header__icon js-sidebar-button">
+                            <svg width="24" height="24">
+                                <use xlink:href="./app-sprite.svg#menu"></use>
+                            </svg>
+                        </span>
+                        <a class="app-header__logo" href="/">
+                            <svg width="120" height="30">
+                                <use xlink:href="./app-sprite.svg#logo"></use>
+                            </svg>
+                        </a>
+                        <a class="app-header__phone app-header__icon" href="/">
+                            <svg width="24" height="24">
+                                <use xlink:href="./app-sprite.svg#phone"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>        <main>
+                <section class="app-banner js-banner">
+                    <div class="app-container-holder">
+                        <div class="app-banner__simple-wrapper">
+                            <div class="app-banner__simple-img">
+                                <img src="./images/banner-3.jpg" alt="" />
+                            </div>
+                            <div class="app-banner__page-item app-container">
+                                <div class="title">Автомобили в наличии</div>
+                                <div class="content">
+                                    <p>Продаются транспортные средства на крытом паркинге, где обеспечивается круглосуточное видеонаблюдение и охрана. Мы работаем c лизинговыми организациями, предоставляющие самые отличные условия для лизинга.</p>
+                                </div>
+                
+                                <div class="app-mobile-visible mt-3">
+                                    <div class="hidden">
+                                        <div id="car-filters-modal">
+                                            <div class="app-modal-filter__container">
+                                                <div class="app-modal-filter__header">
+                                                    <div class="app-modal-filter__header-title js-modal-close">
+                                                        <svg width="9" height="24"><use xlink:href="./app-sprite.svg#arrow-left"></use></svg>
+                                                        <span>Параметры</span>
+                                                    </div>
+                                                    <button class="app-modal-filter__header-reset">
+                                                        <span>Сбросить фильтры</span>
+                                                        <svg width="14" height="24"><use xlink:href="./app-sprite.svg#close"></use></svg>
+                                                    </button>
+                                                </div>
+                                                <form class="app-modal-filter__form">
+                                                    <div class="app-modal-filter__form-container">
+                                                        <div class="app-select">
+                                                            <div class="app-select__view">Марка</div>
+                                                            <select data-multichoice="true" data-change-view="true">
+                                                                <option value="placeholder">Выберите марку авто</option>
+                                                                <option value="m1">марка 1</option>
+                                                                <option value="m2">марка 2</option>
+                                                                <option value="m3">марка 3</option>
+                                                                <option value="m4">марка 4</option>
+                                                                <option value="m5">марка 5</option>
+                                                                <option value="m6">марка 6</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="app-select">
+                                                            <div class="app-select__view">Модель</div>
+                                                            <select data-multichoice="true" data-change-view="true">
+                                                                <optgroup label="BMW">
+                                                                    <option value="placeholder">Выберите модель авто</option>
+                                                                    <option value="bmw1">модель бмв 1</option>
+                                                                    <option value="bmw2">модель бмв 2</option>
+                                                                    <option value="bmw3">модель бмв 3</option>
+                                                                    <option value="bmw4">модель бмв 4</option>
+                                                                    <option value="bmw5">модель бмв 5</option>
+                                                                    <option value="bmw6">модель бмв 6</option>
+                                                                    <option value="bmw7">модель бмв 7</option>
+                                                                </optgroup>
+                                                                <optgroup label="Tesla">
+                                                                    <option value="tesla1">модель тесла 1</option>
+                                                                    <option value="tesla2">модель тесла 2</option>
+                                                                    <option value="tesla2">модель тесла 3</option>
+                                                                    <option value="tesla3">модель тесла 4</option>
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                        <div class="app-select">
+                                                            <div class="app-select__view">Двигатель</div>
+                                                            <select data-multichoice="true" data-change-view="true">
+                                                                <option value="placeholder">Выберите тип двигателя</option>
+                                                                <option value="eng1">двигатель 1</option>
+                                                                <option value="eng2">двигатель 2</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="app-modal-filter__form-group">
+                                                            <div class="app-input">
+                                                                <label><span class="app-input__placeholder">Год от</span><input type="text"></label>
+                                                            </div>
+                                                            <div class="app-input">
+                                                                <label><span class="app-input__placeholder">до</span><input type="text"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="app-select">
+                                                            <div class="app-select__view">Коробка передач</div>
+                                                            <select data-multichoice="true" data-change-view="true">
+                                                                <option value="placeholder">Выберите тип кпп</option>
+                                                                <option value="cpp1">кпп 1</option>
+                                                                <option value="cpp2">кпп 2</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="app-select">
+                                                            <div class="app-select__view">Привод</div>
+                                                            <select data-multichoice="true" data-change-view="true">
+                                                                <option value="placeholder">Выберите тип привода</option>
+                                                                <option value="wh1">привод 1</option>
+                                                                <option value="wh2">привод 2</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="app-modal-filter__form-group">
+                                                            <div class="app-input">
+                                                                <label><span class="app-input__placeholder">Цена от, BYN</span><input type="text"></label>
+                                                            </div>
+                                                            <div class="app-input">
+                                                                <label><span class="app-input__placeholder">до, BYN</span><input type="text"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="app-modal-filter__form-group">
+                                                            <div class="app-input">
+                                                                <label><span class="app-input__placeholder">Пробег от, км</span><input type="text"></label>
+                                                            </div>
+                                                            <div class="app-input">
+                                                                <label><span class="app-input__placeholder">до, км</span><input type="text"></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="app-modal-filter__form-footer">
+                                                        <button type="submit" class="app-btn btn-size-l btn-primary btn-full"><span>7 878 предложений</span></button>
+                                                    </div>
+                                                </form>
+                                            </div>    </div>
+                                    </div>
+                                    <button class="app-btn btn-size-m btn-primary btn-full js-car-filters-button" data-modal="car-filters-modal">
+                                        <span>Параметры авто</span>
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#settings"></use>
+                                        </svg>
+                                    </button>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            document.querySelectorAll('.js-car-filters-button').forEach(button => {
+                                                const {modal: modalId, closable: isClosable = true} = button.dataset;
+                                                const modal = new AppModal(modalId);
+                                                modal.setClosable(isClosable)
+                                                modal.setCustomStyle("app-modal-filters")
+                                                button.addEventListener('click', () => modal.open());
+                                            });
+                                        })
+                                    </script>                </div>
+                                <div class="app-desktop-visible mt-4">
+                                    <div class="app-cars-filter">
+                                        <div class="app-cars-filter__top">
+                                            <div class="app-select">
+                                                <div class="app-select__view">Марка</div>
+                                                <select data-multichoice="true" data-change-view="false">
+                                                    <option value="m1">марка 1</option>
+                                                    <option value="m2">марка 2</option>
+                                                    <option value="m3">марка 3</option>
+                                                    <option value="m4">марка 4</option>
+                                                    <option value="m5">марка 5</option>
+                                                    <option value="m6">марка 6</option>
+                                                </select>
+                                            </div>
+                                            <div class="app-select">
+                                                <div class="app-select__view">Модель</div>
+                                                <select data-multichoice="true" data-change-view="false">
+                                                    <optgroup label="BMW">
+                                                        <option value="bmw1">модель бмв 1</option>
+                                                        <option value="bmw2">модель бмв 2</option>
+                                                        <option value="bmw3">модель бмв 3</option>
+                                                        <option value="bmw4">модель бмв 4</option>
+                                                        <option value="bmw5">модель бмв 5</option>
+                                                        <option value="bmw6">модель бмв 6</option>
+                                                        <option value="bmw7">модель бмв 7</option>
+                                                    </optgroup>
+                                                    <optgroup label="Tesla">
+                                                        <option value="tesla1">модель тесла 1</option>
+                                                        <option value="tesla2">модель тесла 2</option>
+                                                        <option value="tesla2">модель тесла 3</option>
+                                                        <option value="tesla3">модель тесла 4</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                            <div class="app-select">
+                                                <div class="app-select__view">Двигатель</div>
+                                                <select data-multichoice="true" data-change-view="false">
+                                                    <option value="eng1">двигатель 1</option>
+                                                    <option value="eng2">двигатель 2</option>
+                                                </select>
+                                            </div>
+                                            <div class="app-select">
+                                                <div class="app-select__view">Привод</div>
+                                                <select data-multichoice="true" data-change-view="false">
+                                                    <option value="wh1">привод 1</option>
+                                                    <option value="wh2">привод 2</option>
+                                                </select>
+                                            </div>
+                                            <div class="app-select">
+                                                <div class="app-select__view">КПП</div>
+                                                <select data-multichoice="true" data-change-view="false">
+                                                    <option value="cpp1">кпп 1</option>
+                                                    <option value="cpp2">кпп 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="app-cars-filter__bottom">
+                                            <div class="app-cars-filter__group">
+                                                <div class="app-cars-filter__group-title">Год</div>
+                                                <div class="app-input">
+                                                    <label><span class="app-input__placeholder">от</span><input type="text" ></label>
+                                                </div>
+                                                <div class="app-cars-filter__group-spacer"> — </div>
+                                                <div class="app-input">
+                                                    <label><span class="app-input__placeholder">до</span><input type="text" ></label>
+                                                </div>
+                                            </div>
+                                            <div class="app-cars-filter__group">
+                                                <div class="app-cars-filter__group-title">Пробег</div>
+                                                <div class="app-input">
+                                                    <label><span class="app-input__placeholder">от, км</span><input type="text" ></label>
+                                                </div>
+                                                <div class="app-cars-filter__group-spacer"> — </div>
+                                                <div class="app-input">
+                                                    <label><span class="app-input__placeholder">до, км</span><input type="text" ></label>
+                                                </div>
+                                            </div>
+                                            <div class="app-cars-filter__group">
+                                                <div class="app-cars-filter__group-title">Цена</div>
+                                                <div class="app-input">
+                                                    <label><span class="app-input__placeholder">от, BYN</span><input type="text" ></label>
+                                                </div>
+                                                <div class="app-cars-filter__group-spacer"> — </div>
+                                                <div class="app-input">
+                                                    <label><span class="app-input__placeholder">до, BYN</span><input type="text" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="app-cars-result ">
+                    <div class="app-container-holder">
+                        <div class="app-container">
+                            <div class="app-active-filters">
+                                <div class="app-active-filter__item">
+                                    <span>BMW</span>
+                                    <svg width="10" height="18">
+                                        <use xlink:href="./app-sprite.svg#close-sm"></use>
+                                    </svg>
+                                </div>
+                                <div class="app-active-filter__item">
+                                    <span>Бензин</span>
+                                    <svg width="10" height="18">
+                                        <use xlink:href="./app-sprite.svg#close-sm"></use>
+                                    </svg>
+                                </div>
+                                <div class="app-active-filter__item">
+                                    <span>Дизель</span>
+                                    <svg width="10" height="18">
+                                        <use xlink:href="./app-sprite.svg#close-sm"></use>
+                                    </svg>
+                                </div>
+                                <div class="app-active-filter__item">
+                                    <span>Электро</span>
+                                    <svg width="10" height="18">
+                                        <use xlink:href="./app-sprite.svg#close-sm"></use>
+                                    </svg>
+                                </div>
+                                <div class="app-active-filter__item">
+                                    <span>Газ</span>
+                                    <svg width="10" height="18">
+                                        <use xlink:href="./app-sprite.svg#close-sm"></use>
+                                    </svg>
+                                </div>
+                                <div class="app-active-filter__item --right app-desktop-visible">
+                                    <span>Сбросить фильтры</span>
+                                    <svg width="10" height="18">
+                                        <use xlink:href="./app-sprite.svg#close-sm"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="app-cars-result__header mt-3">
+                                <b>828 предложений</b>
+                                <div class="app-select">
+                                    <div class="app-select__view">Сначала дешевые</div>
+                                    <select data-change-view="true" data-horizontal-pos="right">
+                                        <option value="1">Сначала дешевые</option>
+                                        <option value="2">Сначала дорогие</option>
+                                        <option value="3">Сначала новые</option>
+                                        <option value="4">Сначала старые</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="app-cars-result__grid mt-3">
+                                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>                <div class="app-stock-thumb">
+                                    <div class="app-stock-thumb__area">
+                                        <div class="app-stock-thumb__grid">
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_01_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_02_sm.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="app-stock-thumb__img">
+                                                <img src="./images/thumb_03_sm.jpg" alt="">
+                                            </a>
+                                            <div class="app-stock-thumb__indicators">
+                                                <!--индикаторов сколько картинок-->
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="app-stock-thumb__status --in-stock">в наличии</div>
+                                    </div>
+                                
+                                    <a href="/">
+                                        <div class="app-stock-thumb__title"><span>Jaguar I-Pace I</span></div>
+                                        <div class="app-stock-thumb__price">
+                                            <span>104 658 BYN</span>
+                                            <small>~30 400 USD</small>
+                                        </div>
+                                        <div class="app-stock-thumb__info">
+                                            <span>1.2</span>
+                                            <span>Бензин</span>
+                                            <span>2020</span>
+                                            <span>100 000 км</span>
+                                            <span>Автомат</span>
+                                            <span>Полный</span>
+                                        </div>
+                                    </a>
+                                </div>            </div>
+                            <div class="app-cars-result__footer">
+                                <button class="app-btn btn-primary btn-size-l">
+                                    <span class="app-mobile-visible">Показать еще</span>
+                                    <span class="app-desktop-visible">Показать еще 8 предложений</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="app-why-us app-section--mt">
+                    <div class="app-container-holder">
+                        <div class="app-container">
+                            <div class="app-why-us__holder">
+                                <div class="app-section__header-sm app-why-us__top">Почему выбирают <span>AM CAR</span></div>
+                                <div class="app-why-us__section --right">
+                                    <h2>Гарантия сделки и <span>страхование</span>&nbsp;груза</h2>
+                                    <p>Все платежи осуществляются только через банк, никаких наличных денежных средств — это даст Вам гарантию в 100% легальность сделки , а нам никаких претензий со стороны контролирующих органов</p>
+                                </div>
+                                <div class="app-why-us__section --left">
+                                    <h2>Доставка, растаможка и&nbsp;<span>ремонт&nbsp;авто</span></h2>
+                                    <p>Этот этап занимает от 2-х до 10-и дней в зависимости от месторасположения площадки аукциона.
+                                        Автомобили оправляются в следующие порты:</p>
+                                    <a href="#" class="app-btn btn-secondary btn-size-m"><span>Калькулятор доставки</span></a>
+                                </div>
+                                <div class="app-why-us__section --right">
+                                    <h2>Автомобиль <span>в&nbsp;лизинг</span></h2>
+                                    <p>Мы предлагаем финансирование до 80% от стоимости выбранного вами нового авто или с пробегом, но не требующие ремонта и готовые к эксплуатации. Одобрение заявки происходит в течение 1-2 дней, а срок лизинга составляет до 60 месяцев.</p>
+                                    <a href="#" class="app-btn btn-primary btn-size-m"><span>Оставить заявку</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>    <section class="app-reviews app-section--mt">
+                    <div class="app-container-holder">
+                        <div class="app-container">
+                            <div class="app-section--header">
+                                <h2>Отзывы</h2>
+                                <span class="--right-content">Мы прекрасно понимаем, что самая лучшая оценка нашей работы и лучший инструмент рекламы — это довольный клиент. </span>
+                            </div>
+                            <swiper-container init="false" class="js-review-swiper">
+                                <div slot="container-start">
+                                    <button class="app-btn btn-slider btn-size-xl swiper-left app-desktop-visible">
+                                        <svg width="9" height="24">
+                                            <use xlink:href="./app-sprite.svg#arrow-left"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div slot="container-end">
+                                    <button class="app-btn btn-slider btn-size-xl swiper-right app-desktop-visible">
+                                        <svg width="9" height="24">
+                                            <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_01.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_02.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_03.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_04.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_01.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_02.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_03.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="app-review__item">
+                                        <img src="./images/review_04.png" alt="" />
+                                    </div>
+                                </swiper-slide>
+                            </swiper-container>
+                        </div>
+                    </div>
+                </section>        </main>
+        <footer class="app-footer app-section--mt">
+            <div class="app-container-holder">
+                <div class="app-footer__inner">
+                    <div class="app-container">
+                        <div class="app-footer-content">
+                            <div class="app-footer-left">
+                                <a class="app-footer__logo" href="/">
+                                    <svg width="128" height="44">
+                                        <use xlink:href="./app-sprite.svg#logo"></use>
+                                    </svg>
+                                </a>
+                                <ul class="app-footer__contacts">
+                                    <li class="app-footer__contacts-item">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#phone"></use>
+                                        </svg>
+                                        <p><a href="tel:+375447771111">+375 44 777<span>–</span>11<span>–</span>11</a></p>
+                                    </li>
+                                    <li class="app-footer__contacts-item">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#clock"></use>
+                                        </svg>
+                                        <p>Будни 09:00–21:00</p>
+                                        <p>Выходные 09:00–20:00</p>
+                                    </li>
+                                    <li class="app-footer__contacts-item">
+                                        <svg width="17" height="24">
+                                            <use xlink:href="./app-sprite.svg#pin"></use>
+                                        </svg>
+                                        <p>Минск, ул. Ленина 27 ТЦ "Ленинград" паркинг 2 этаж</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="app-footer-right">
+                                <div class="app-footer-columns">
+                                    <div class="app-footer-column">
+                                        <label class="app-footer__accordion-link">
+                                            <input type="checkbox" hidden>
+                                            <span>Клиенту</span>
+                                            <svg width="16" height="24">
+                                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </label>
+                                        <div class="app-footer__nav-wrapper">
+                                            <nav class="app-footer__nav">
+                                                <a href="#" class="app-footer__nav-link"><span>Авто в наличии</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Продать авто</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Авто из США</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Авто из Европы</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Авто в Пути</span></a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="app-footer-column">
+                                        <label class="app-footer__accordion-link">
+                                            <input type="checkbox" hidden>
+                                            <span>Услуги</span>
+                                            <svg width="16" height="24">
+                                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </label>
+                                        <div class="app-footer__nav-wrapper">
+                                            <nav class="app-footer__nav">
+                                                <a href="#" class="app-footer__nav-link"><span>Доставка авто</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Таможенное оформление</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Ремонт авто</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Отслеживание контейнеров</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Проверка карфакс</span></a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="app-footer-column app-footer__last-cell">
+                                        <label class="app-footer__accordion-link">
+                                            <input type="checkbox" hidden>
+                                            <span>Компания</span>
+                                            <svg width="16" height="24">
+                                                <use xlink:href="./app-sprite.svg#arrow-down"></use>
+                                            </svg>
+                                        </label>
+                                        <div class="app-footer__nav-wrapper">
+                                            <nav class="app-footer__nav">
+                                                <a href="#" class="app-footer__nav-link"><span>Документы</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Персональные данные</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Новости</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>О компании</span></a>
+                                                <a href="#" class="app-footer__nav-link"><span>Контакты</span></a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-footer-bottom">
+                            <div class="app-footer-left">
+                                <div class="app-footer-social">
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#viber"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#telegram"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#whats-app"></use>
+                                        </svg>
+                                    </a>
+                                    <a href="#">
+                                        <svg width="20" height="24">
+                                            <use xlink:href="./app-sprite.svg#instagram"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="app-footer-right">
+                                <div class="app-footer-bottom__info">
+                                    <div class="app-footer-bottom__info-left">
+                                        Все права защищены. Любое использование материалов допускается только со ссылкой на источник.
+                                    </div>
+                                    <div class="app-footer-bottom__info-right app-footer__last-cell">
+                                        © 2018-2025 УНП 191427916<br>
+                                        ИП Ясевич Александр Викторович.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>    </div>
+    <aside class="app-sidebar app-mobile-visible js-sidebar-element">
+        <span class="app-sidebar__close js-sidebar-button" href="/">
+            <svg width="14" height="24">
+                <use xlink:href="./app-sprite.svg#close"></use>
+            </svg>
+        </span>
+        <div class="app-sidebar__header">
+            <span>Меню</span>
+        </div>
+        <div class="app-sidebar__scroll">
+            <nav class="app-sidebar-nav__main">
+                <a href="#" class="app-sidebar__link"><span>Авто в наличии</span></a>
+                <a href="#" class="app-sidebar__link"><span>Авто в пути</span></a>
+                <a href="#" class="app-sidebar__link"><span>Авто из Европы</span></a>
+                <a href="#" class="app-sidebar__link"><span>Авто из США</span></a>
+                <a href="#" class="app-sidebar__link"><span>Оценить авто</span></a>
+            </nav>
+            <nav class="app-sidebar-nav__secondary mt-3">
+                <a href="#" class="app-sidebar__link"><span>Instagram</span></a>
+                <a href="#" class="app-sidebar__link"><span>Telegram</span></a>
+                <a href="#" class="app-sidebar__link"><span>О компании</span></a>
+                <a href="#" class="app-sidebar__link"><span>Контакты</span></a>
+                <a href="#" class="app-sidebar__link"><span>Новости</span></a>
+                <a href="#" class="app-sidebar__link"><span>Персональные данные</span></a>
+            </nav>
+        </div>
+        <div class="app-footer-social">
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#viber"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#telegram"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#whats-app"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#instagram"></use>
+                </svg>
+            </a>
+        </div>
+    </aside>    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</body>
+</html>

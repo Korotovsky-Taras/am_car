@@ -10,7 +10,7 @@
 
         <title></title>
       <script type="module" crossorigin src="./build/chunks/app.js"></script>
-      <link rel="stylesheet" crossorigin href="./assets/app-BXdLEuYG.css">
+      <link rel="stylesheet" crossorigin href="./assets/app-iYuboeZX.css">
     </head>
 <body class="">
     <div class="app-wrapper">
@@ -31,10 +31,10 @@
                                 <a class="app-header__nav-link" href="#">
                                     <span>Telegram</span>
                                 </a>
-                                <a class="app-header__nav-link" href="#">
+                                <a class="app-header__nav-link" href="/about">
                                     <span>О компании</span>
                                 </a>
-                                <a class="app-header__nav-link" href="#">
+                                <a class="app-header__nav-link" href="/contacts">
                                     <span>Контакты</span>
                                 </a>
                             </nav>
@@ -59,11 +59,11 @@
                         </nav>
                     </div>
                     <div class="app-header-mobile app-header__wrapper app-mobile-visible">
-                        <a class="app-header__menu app-header__icon" href="/">
+                        <span class="app-header__menu app-header__icon js-sidebar-button">
                             <svg width="24" height="24">
                                 <use xlink:href="./app-sprite.svg#menu"></use>
                             </svg>
-                        </a>
+                        </span>
                         <a class="app-header__logo" href="/">
                             <svg width="120" height="30">
                                 <use xlink:href="./app-sprite.svg#logo"></use>
@@ -268,6 +268,54 @@
                 </div>
             </div>
         </footer>    </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <aside class="app-sidebar app-mobile-visible js-sidebar-element">
+        <span class="app-sidebar__close js-sidebar-button" href="/">
+            <svg width="14" height="24">
+                <use xlink:href="./app-sprite.svg#close"></use>
+            </svg>
+        </span>
+        <div class="app-sidebar__header">
+            <span>Меню</span>
+        </div>
+        <div class="app-sidebar__scroll">
+            <nav class="app-sidebar-nav__main">
+                <a href="#" class="app-sidebar__link"><span>Авто в наличии</span></a>
+                <a href="#" class="app-sidebar__link"><span>Авто в пути</span></a>
+                <a href="#" class="app-sidebar__link"><span>Авто из Европы</span></a>
+                <a href="#" class="app-sidebar__link"><span>Авто из США</span></a>
+                <a href="#" class="app-sidebar__link"><span>Оценить авто</span></a>
+            </nav>
+            <nav class="app-sidebar-nav__secondary mt-3">
+                <a href="#" class="app-sidebar__link"><span>Instagram</span></a>
+                <a href="#" class="app-sidebar__link"><span>Telegram</span></a>
+                <a href="#" class="app-sidebar__link"><span>О компании</span></a>
+                <a href="#" class="app-sidebar__link"><span>Контакты</span></a>
+                <a href="#" class="app-sidebar__link"><span>Новости</span></a>
+                <a href="#" class="app-sidebar__link"><span>Персональные данные</span></a>
+            </nav>
+        </div>
+        <div class="app-footer-social">
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#viber"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#telegram"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#whats-app"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg width="20" height="24">
+                    <use xlink:href="./app-sprite.svg#instagram"></use>
+                </svg>
+            </a>
+        </div>
+    </aside>    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 </body>
 </html>
