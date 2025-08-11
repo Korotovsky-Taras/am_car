@@ -64,6 +64,7 @@ class AppSelect {
     }
 
     init() {
+        this.loadInitialSelection();
         this.setupSelect();
 
         document.addEventListener('click', (e) => {

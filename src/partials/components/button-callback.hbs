@@ -12,11 +12,19 @@
 </button>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const modal = new AppModal('callback-modal');
+        modal.setClosable(true);
+
         document.querySelectorAll('.js-callback-button').forEach(button => {
-            const {modal: modalId, closable: isClosable = true} = button.dataset;
-            const modal = new AppModal(modalId);
-            modal.setClosable(isClosable)
             button.addEventListener('click', () => modal.open());
         });
-    })
+    });
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     document.querySelectorAll('.js-callback-button').forEach(button => {
+    //         const {modal: modalId, closable: isClosable = true} = button.dataset;
+    //         const modal = new AppModal(modalId);
+    //         modal.setClosable(isClosable)
+    //         button.addEventListener('click', () => modal.open());
+    //     });
+    // })
 </script>
