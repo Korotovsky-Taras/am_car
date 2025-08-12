@@ -177,6 +177,7 @@ class AppSwiperZoom {
     openZoom(index) {
         this.currentIndex = index;
         this.updateImageInModal();
+        console.log(this.modal)
         this.modal.open();
     }
     

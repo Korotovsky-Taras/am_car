@@ -3,7 +3,7 @@ class AppModal {
         this.contentId = contentId;
         this.contentNodes = null;
 
-        this.isOpen = false;
+        this.isOpened = false;
         this.closable = false;
 
         this.modalElement = this._createModalElement();
@@ -46,6 +46,13 @@ class AppModal {
 
     _setupEvents() {
         this.closeButton.addEventListener('click', () => this.close());
+
+        document.addEventListener('keydown', (e) => {
+            if (this.closable && e.key === 'Escape' && this.isOpened) {
+                this.close();
+            }
+        });
+
         this.modalElement.addEventListener('click', (e) => {
             if (this.closable && !this.wrapperElement.contains(e.target)) {
                 this.close();
@@ -103,14 +110,20 @@ class AppModal {
         this.modalElement.remove();
     }
 
-
     _insertContentNodes(addCallback) {
+        if (this.contentNodes) {
+            this.contentNodes.forEach(node => {
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    addCallback(node);
+                }
+            });
+            return;
+        }
+
         const contentNode = document.getElementById(this.contentId);
         if (!contentNode || !contentNode.hasChildNodes()) return;
 
-        if (this.contentNodes == null) {
-            this.contentNodes = Array.from(contentNode.childNodes);
-        }
+        this.contentNodes = Array.from(contentNode.childNodes);
 
         this.contentNodes.forEach(node => {
             if (node.nodeType === Node.ELEMENT_NODE) {
@@ -120,17 +133,17 @@ class AppModal {
     }
 
     open() {
-        if (this.isOpen) return;
-        this.isOpen = true;
+        if (this.isOpened) return;
+        this.isOpened = true;
 
         this._insertContentNodes(nodeElement => this._addToDOM(nodeElement))
         this._animate('show');
     }
 
     close() {
-        if (!this.isOpen) return;
+        if (!this.isOpened) return;
         this._animate('hide');
-        this.isOpen = false;
+        this.isOpened = false;
     }
 
     setClosable(state) {
