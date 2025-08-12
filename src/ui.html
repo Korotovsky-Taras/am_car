@@ -11,101 +11,168 @@
                 {{> components/button-thanks }}
             </div>
 
-            <div class="ui-selects app-section--mt">
+            <div class="app-section--mt">
+                <h2>Синронизация селектов</h2>
+                <div class="ui-selects mt-2">
+
+
+                <div class="app-select">
+                    <div class="app-select__view">Марка</div>
+                    <select data-multichoice="true"  data-sync-id="sync-id-0">
+                        <option value="placeholder">Выберите марку авто</option>
+                        <optgroup label="BMW">
+                            <option value="bmw1" selected>3 серия</option>
+                            <option value="bmw2">4 серия</option>
+                            <option value="bmw3" selected>5 серия</option>
+                            <option value="bmw4">7 серия</option>
+                        </optgroup>
+                        <optgroup label="Tesla">
+                            <option value="tesla1" selected>Model S</option>
+                            <option value="tesla2" selected>Model 3</option>
+                            <option value="tesla3">Model X</option>
+                            <option value="tesla4">Model Y</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="app-select" style="min-width: 300px">
+                    <div class="app-select__view">Марка</div>
+                    <select data-multichoice="true" data-change-view="false" data-sync-id="sync-id-0">
+                        <option value="placeholder">Выберите марку авто</option>
+                        <optgroup label="BMW">
+                            <option value="bmw1">3 серия</option>
+                            <option value="bmw2">4 серия</option>
+                            <option value="bmw3">5 серия</option>
+                            <option value="bmw4">7 серия</option>
+                        </optgroup>
+                        <optgroup label="Tesla">
+                            <option value="tesla1">Model S</option>
+                            <option value="tesla2">Model 3</option>
+                            <option value="tesla3">Model X</option>
+                            <option value="tesla4">Model Y</option>
+                        </optgroup>
+                    </select>
+                </div>
+
                 <div class="app-select" style="min-width: 300px">
                     <div class="app-select__view">Привод</div>
-                    <select>
+                    <select  data-sync-id="sync-id-1">
                         <option value="placeholder">Выберите тип привода</option>
-                        <option value="1" selected>Вайбер</option>
+                        <option value="1">Вайбер</option>
+                        <option value="2" selected>Телеграм</option>
+                        <option value="3">Телефон</option>
+                    </select>
+                </div>
+                <div class="app-select" style="min-width: 300px" >
+                    <div class="app-select__view">Привод</div>
+                    <select data-sync-id="sync-id-1">
+                        <option value="placeholder">Выберите тип привода</option>
+                        <option value="1">Вайбер</option>
                         <option value="2">Телеграм</option>
                         <option value="3">Телефон</option>
                     </select>
                 </div>
-                <div class="app-select" style="min-width: 300px; max-width: 500px">
-                    <div class="app-select__view">Выберите марку авто</div>
-                    <select data-multichoice="true">
-                        <option value="placeholder">Выберите марку авто</option>
-                        <optgroup label="BMW">
+            </div>
+            </div>
+
+            <div class="app-section--mt">
+                <h2>Селекты</h2>
+                    <div class="ui-selects mt-2">
+                    <div class="app-select" style="min-width: 300px">
+                        <div class="app-select__view">Привод</div>
+                        <select>
+                            <option value="placeholder">Выберите тип привода</option>
+                            <option value="1" selected>Вайбер</option>
+                            <option value="2">Телеграм</option>
+                            <option value="3">Телефон</option>
+                        </select>
+                    </div>
+                    <div class="app-select" style="min-width: 300px; max-width: 500px">
+                        <div class="app-select__view">Выберите марку авто</div>
+                        <select data-multichoice="true">
+                            <option value="placeholder">Выберите марку авто</option>
+                            <optgroup label="BMW">
+                                <option value="bmw1">3 серия</option>
+                                <option value="bmw2">4 серия</option>
+                                <option value="bmw3">5 серия</option>
+                                <option value="bmw4">7 серия</option>
+                            </optgroup>
+                            <optgroup label="Tesla">
+                                <option value="tesla1">Model S</option>
+                                <option value="tesla2">Model 3</option>
+                                <option value="tesla3">Model X</option>
+                                <option value="tesla4">Model Y</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="app-select" style="min-width: 300px">
+                        <div class="app-select__view">Привод</div>
+                        <select>
+                            <option value="placeholder">Выберите тип привода</option>
+                            <option value="1">Передний</option>
+                            <option value="2">Задний</option>
+                            <option value="3">Полный</option>
+                            <option value="4">Подключаемый полный</option>
+                            <option value="5">Парт-тайм</option>
+                        </select>
+                    </div>
+                    <div class="app-select" style="min-width: 300px">
+                        <div class="app-select__view">Марка</div>
+                        <select data-multichoice="true" data-change-view="false">
+                            <option value="placeholder">Выберите марку авто</option>
                             <option value="bmw1">3 серия</option>
                             <option value="bmw2">4 серия</option>
                             <option value="bmw3">5 серия</option>
                             <option value="bmw4">7 серия</option>
-                        </optgroup>
-                        <optgroup label="Tesla">
-                            <option value="tesla1">Model S</option>
-                            <option value="tesla2">Model 3</option>
-                            <option value="tesla3">Model X</option>
-                            <option value="tesla4">Model Y</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="app-select">
-                    <div class="app-select__view">Привод</div>
-                    <select>
-                        <option value="placeholder">Выберите тип привода</option>
-                        <option value="1">Передний</option>
-                        <option value="2">Задний</option>
-                        <option value="3">Полный</option>
-                        <option value="4">Подключаемый полный</option>
-                        <option value="5">Парт-тайм</option>
-                    </select>
-                </div>
-                <div class="app-select">
-                    <div class="app-select__view">Марка</div>
-                    <select data-multichoice="true" data-change-view="false">
-                        <option value="placeholder">Выберите марку авто</option>
-                        <option value="bmw1">3 серия</option>
-                        <option value="bmw2">4 серия</option>
-                        <option value="bmw3">5 серия</option>
-                        <option value="bmw4">7 серия</option>
-                    </select>
-                </div>
-                <div class="app-select">
-                    <div class="app-select__view">Марка</div>
-                    <select data-multichoice="true" data-change-view="false">
-                        <option value="placeholder">Выберите марку авто</option>
-                        <optgroup label="BMW">
-                            <option value="bmw1">3 серия</option>
-                            <option value="bmw2">4 серия</option>
-                            <option value="bmw3">5 серия</option>
-                            <option value="bmw4">7 серия</option>
-                        </optgroup>
-                        <optgroup label="Tesla">
-                            <option value="tesla1">Model S</option>
-                            <option value="tesla2">Model 3</option>
-                            <option value="tesla3">Model X</option>
-                            <option value="tesla4">Model Y</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="app-select">
-                    <div class="app-select__view">Марка</div>
-                    <select data-multichoice="true">
-                        <option value="placeholder">Выберите марку авто</option>
-                        <optgroup label="BMW">
-                            <option value="bmw1">3 серия</option>
-                            <option value="bmw2">4 серия</option>
-                            <option value="bmw3">5 серия</option>
-                            <option value="bmw4">7 серия</option>
-                        </optgroup>
-                        <optgroup label="Tesla">
-                            <option value="tesla1">Model S</option>
-                            <option value="tesla2">Model 3</option>
-                            <option value="tesla3">Model X</option>
-                            <option value="tesla4">Model Y</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="app-select">
-                    <div class="app-select__view">Тип привода</div>
-                    <select data-change-view="false">
-                        <option value="placeholder">Выберите тип привода</option>
-                        <option value="1">Передний</option>
-                        <option value="2">Задний</option>
-                        <option value="3">Полный</option>
-                        <option value="4">Подключаемый</option>
-                        <option value="5">Парт-тайм</option>
-                    </select>
+                        </select>
+                    </div>
+                    <div class="app-select" style="min-width: 300px">
+                        <div class="app-select__view">Марка</div>
+                        <select data-multichoice="true" data-change-view="false">
+                            <option value="placeholder">Выберите марку авто</option>
+                            <optgroup label="BMW">
+                                <option value="bmw1">3 серия</option>
+                                <option value="bmw2">4 серия</option>
+                                <option value="bmw3">5 серия</option>
+                                <option value="bmw4">7 серия</option>
+                            </optgroup>
+                            <optgroup label="Tesla">
+                                <option value="tesla1">Model S</option>
+                                <option value="tesla2">Model 3</option>
+                                <option value="tesla3">Model X</option>
+                                <option value="tesla4">Model Y</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="app-select" style="min-width: 300px">
+                        <div class="app-select__view">Марка</div>
+                        <select data-multichoice="true">
+                            <option value="placeholder">Выберите марку авто</option>
+                            <optgroup label="BMW">
+                                <option value="bmw1">3 серия</option>
+                                <option value="bmw2">4 серия</option>
+                                <option value="bmw3">5 серия</option>
+                                <option value="bmw4">7 серия</option>
+                            </optgroup>
+                            <optgroup label="Tesla">
+                                <option value="tesla1">Model S</option>
+                                <option value="tesla2">Model 3</option>
+                                <option value="tesla3">Model X</option>
+                                <option value="tesla4">Model Y</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="app-select" style="min-width: 300px">
+                        <div class="app-select__view">Тип привода</div>
+                        <select data-change-view="false">
+                            <option value="placeholder">Выберите тип привода</option>
+                            <option value="1">Передний</option>
+                            <option value="2">Задний</option>
+                            <option value="3">Полный</option>
+                            <option value="4">Подключаемый</option>
+                            <option value="5">Парт-тайм</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 

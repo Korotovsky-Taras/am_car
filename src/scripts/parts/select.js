@@ -1,5 +1,3 @@
-
-
 class AppSelect {
     #POPUP_SELECTOR = 'app-select__popup';
     #POPUP_CONTENT_SELECTOR = 'app-select__popup-content';
@@ -26,6 +24,7 @@ class AppSelect {
         this.activePopup = null;
         this.selectedItems = new Set();
         this.initialSelectedItems = new Set();
+        this.syncSelectInstance = null;
 
         const selectView = this.el.querySelector(this.#POPUP_ANCHOR_STYLE);
         this.initialTitle = selectView ? selectView.textContent : '';
@@ -33,12 +32,40 @@ class AppSelect {
         const select = this.el.querySelector('select');
         const placeholderOption = select ? select.querySelector('option[value="placeholder"]') : null;
         this.initialPlaceholder = placeholderOption ? placeholderOption.textContent : '';
-        
         this.init();
     }
 
     get isMobile() {
         return window.matchMedia('(max-width: 1024px)').matches;
+    }
+
+    get isMulti() {
+        return this.el.querySelector('select').hasAttribute('data-multichoice');
+    }
+
+    setSelectedValuesSilent(values) {
+        const select = this.el.querySelector('select');
+        if (!select) return;
+
+        this.selectedItems.clear();
+        select.querySelectorAll('option').forEach(option => {
+            option.selected = false;
+        });
+
+        if (Array.isArray(values)) {
+            values.forEach(value => {
+                const option = select.querySelector(`option[value="${value}"]`);
+                if (option) {
+                    option.selected = true;
+                    this.selectedItems.add(value);
+                }
+            });
+        }
+
+        this.updateViewText();
+
+        const event = new Event('change', { bubbles: true });
+        select.dispatchEvent(event);
     }
 
 
@@ -63,7 +90,18 @@ class AppSelect {
         return btn;
     }
 
+
+    syncSelectionInstance() {
+        const select = this.el.querySelector('select');
+        const syncId = select ? select.getAttribute('data-sync-id') : null;
+
+        if (!syncId || !window.registerAppSelectSync) return;
+
+        this.syncSelectInstance = window.registerAppSelectSync(this, syncId);
+    }
+
     init() {
+        this.syncSelectionInstance();
         this.loadInitialSelection();
         this.setupSelect();
 
@@ -76,7 +114,7 @@ class AppSelect {
                     if (!this.isMobile) {
                         this.closePopup();
                     }
-                    else if (!this.el.querySelector('select').hasAttribute('data-multichoice')) {
+                    else if (!this.isMulti) {
                         this.closePopup();
                     }
                 }
@@ -92,13 +130,25 @@ class AppSelect {
 
     loadInitialSelection() {
         const select = this.el.querySelector('select');
-        const selectedOptions = select.querySelectorAll('option:checked');
+        const selectedOptions = select.querySelectorAll('option[selected]');
+
+        // Очищаем перед заполнением
+        this.selectedItems.clear();
 
         selectedOptions.forEach(option => {
             if (option.value !== 'placeholder') {
                 this.selectedItems.add(option.value);
             }
         });
+
+        if (this.syncSelectInstance) {
+            const instanceWithValues = [...this.syncSelectInstance.instances]
+                .find(inst => inst !== this && inst.selectedItems.size > 0);
+
+            if (instanceWithValues) {
+                this.setSelectedValuesSilent([...instanceWithValues.selectedItems]);
+            }
+        }
     }
 
 
@@ -208,12 +258,12 @@ class AppSelect {
         this.populateOptions(optionsContainer, select);
         popupContent.appendChild(optionsContainer);
 
-        if (select.hasAttribute('data-multichoice') || this.isMobile) {
+        if (this.isMulti || this.isMobile) {
             const applyBtn = document.createElement('div');
             applyBtn.className = this.#POPUP_APPLY_SELECTOR;
             applyBtn.textContent = 'Применить';
 
-            if (!this.isMobile && select.hasAttribute('data-multichoice')) {
+            if (!this.isMobile && this.isMulti) {
                 applyBtn.style.display = 'none';
             }
 
@@ -233,7 +283,6 @@ class AppSelect {
 
     populateOptions(container, select) {
         const options = select.querySelectorAll(':scope > option, :scope > optgroup');
-        const isMulti = select.hasAttribute('data-multichoice');
 
         options.forEach(option => {
             if (option.tagName === 'OPTGROUP') {
@@ -248,14 +297,14 @@ class AppSelect {
                 const groupOptions = option.querySelectorAll(':scope > option');
                 groupOptions.forEach(groupOption => {
                     if (groupOption.value !== 'placeholder') {
-                        const optionEl = this.createOptionElement(groupOption, isMulti);
+                        const optionEl = this.createOptionElement(groupOption, this.isMulti);
                         groupEl.appendChild(optionEl);
                     }
                 });
 
                 container.appendChild(groupEl);
             } else if (option.tagName === 'OPTION' && option.value !== 'placeholder') {
-                const optionEl = this.createOptionElement(option, isMulti);
+                const optionEl = this.createOptionElement(option, this.isMulti);
                 container.appendChild(optionEl);
             }
         });
@@ -298,8 +347,7 @@ class AppSelect {
     updateApplyButtonVisibility() {
         if (!this.activePopup || this.isMobile) return;
 
-        const select = this.el.querySelector('select');
-        if (!select.hasAttribute('data-multichoice')) return;
+        if (!this.isMulti) return;
 
         const applyBtn = this.activePopup.querySelector(this.#POPUP_APPLY_STYLE);
         if (!applyBtn) return;
@@ -354,6 +402,10 @@ class AppSelect {
 
         const event = new Event('change', { bubbles: true });
         select.dispatchEvent(event);
+
+        if (this.syncSelectInstance) {
+            this.syncSelectInstance.onChange(this, [...this.selectedItems]);
+        }
     }
 
     updateViewText(selectedTexts) {
@@ -473,7 +525,6 @@ class AppSelect {
             this.activePopup = null;
         }
     }
-
 }
 
 window.AppSelect = AppSelect;
