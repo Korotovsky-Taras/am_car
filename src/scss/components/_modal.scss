@@ -20,6 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-overflow-scrolling: touch;
 
     @include mixin.mq-min(lg) {
         --modal-content-gap: 72px;
@@ -36,6 +37,10 @@
     overflow-y: auto;
     box-sizing: border-box;
     max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .app-modal__close {
@@ -73,12 +78,24 @@
     color: var(--text-color);
     padding: var(--modal-content-v-gap) var(--modal-content-h-gap);
     box-sizing: border-box;
+    min-height: min-content;
 
     h1, h2, .h1, .h2 {
         margin-bottom: 16px;
     }
 }
 
+@supports (-webkit-touch-callout: none) {
+    .app-modal__wrapper {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: none;
+    }
+
+    .app-modal__content {
+        transform: none;
+    }
+}
 
 @include mixin.mq-max(md) {
     .app-modal {

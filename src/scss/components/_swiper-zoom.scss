@@ -17,12 +17,20 @@
     width: 100%;
     display: block;
 
+    .app-modal__content {
+        padding-bottom: 124px;
+        touch-action: manipulation;
+        -webkit-overflow-scrolling: touch;
+    }
+
     .app-modal__content,
     .app-modal__wrapper {
         height: 100%;
+        overflow: visible;
     }
     .app-modal__wrapper {
         border-radius: 0;
+        overscroll-behavior: contain;
     }
 
     @include mixin.mq-min(md) {
@@ -127,14 +135,25 @@
     right: 0;
 }
 
+.app-swiper-zoom-t-wrapper {
+    display: flex;
+
+    &:before,
+    &:after {
+        content: '';
+        flex: 1;
+    }
+}
+
 .app-swiper-zoom-thumbnails {
     --thumb-gap: 10px;
+    --thumb-width: 100px;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: var(--thumb-width);
     gap: var(--thumb-gap);
-    width: 100%;
+    max-width: 100%;
     height: 80px;
     min-height: 80px;
     margin-top: 24px;
@@ -145,9 +164,16 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     box-sizing: border-box;
+    touch-action: pan-x;
+    -webkit-tap-highlight-color: transparent;
+
 
     .app-swiper-zoom-thumbnail {
         scroll-snap-align: start;
+        flex: 0 0 var(--thumb-width);
+        width: var(--thumb-width);
+        user-select: none;
+        -webkit-user-select: none;
     }
 
     &::-webkit-scrollbar {
@@ -168,13 +194,12 @@
     &.active {
         opacity: 1;
     }
-}
 
-
-.app-swiper-zoom-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 
@@ -189,5 +214,13 @@
     }
     .app-swiper-zoom-button {
         visibility: visible;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .app-swiper-zoom-button {
+        visibility: visible !important;
+        min-width: 44px;
+        min-height: 44px;
     }
 }

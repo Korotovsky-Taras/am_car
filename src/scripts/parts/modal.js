@@ -69,7 +69,15 @@ class AppModal {
                 this.close();
             }
         });
-        this.modalElement.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+        this.modalElement.addEventListener('touchmove', (e) => {
+            const content = this.modalElement.querySelector('.app-modal__wrapper');
+            if (content && content.scrollHeight > content.clientHeight) {
+                if (e.target.closest('.app-modal__wrapper')) {
+                    return;
+                }
+            }
+            e.preventDefault();
+        }, { passive: false });
     }
 
     _animate(type = 'show') {
