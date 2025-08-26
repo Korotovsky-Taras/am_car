@@ -56,6 +56,7 @@
     top: calc(var(--modal-content-gap) / 2 - var(--modal-close-size) / 2);
     right: calc(var(--modal-content-gap) / 2 - var(--modal-close-size) / 2);
     cursor: pointer;
+    color: currentColor;
     z-index: 100;
 
     svg {

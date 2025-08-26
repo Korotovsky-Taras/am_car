@@ -119,6 +119,11 @@ html {
     text-size-adjust: none;
 }
 
+button {
+    appearance: none;
+    color: currentColor;
+}
+
 body, h1, h2, h3, h4, p,
 figure, blockquote, dl, dd {
     margin: 0;

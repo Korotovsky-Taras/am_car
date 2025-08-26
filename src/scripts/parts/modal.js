@@ -76,7 +76,6 @@ class AppModal {
                     return;
                 }
             }
-            e.preventDefault();
         }, { passive: false });
     }
 
