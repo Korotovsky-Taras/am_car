@@ -10,7 +10,6 @@
         display: none;
     }
     .app-modal__wrapper {
-        overflow: hidden;
         height: 100%;
     }
     .app-modal__content {
@@ -44,7 +43,7 @@
     padding-right: var(--modal-content-h-gap);
     margin-left: calc(-1*var(--modal-content-h-gap));
     margin-right: calc(-1*var(--modal-content-h-gap));
-    padding-bottom: 90px;
+    padding-bottom: 40px;
 }
 
 .app-modal-filter__form-group {
@@ -54,10 +53,10 @@
 }
 
 .app-modal-filter__form-footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    background-color: white;
+    position: sticky;
+    bottom: 20px;
+    z-index: 10;
 
     &:before {
         content: "";
