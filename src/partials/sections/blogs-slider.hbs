@@ -1,0 +1,57 @@
+<section class="app-section__blogs-slider app-section--mt">
+    <div class="app-container-holder">
+        <div class="app-container">
+            <div class="app-section--header app-section--header-mb">
+                <h2>Блог</h2>
+                <a href="#" class="app-btn btn-size-m btn-secondary --right app-desktop-visible">
+                    <span>Читать блог</span>
+                    <svg width="9" height="24">
+                        <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
+            <swiper-container init="false" class="js-default-swiper">
+                <div slot="container-start">
+                    <button class="app-btn btn-slider btn-size-xl swiper-left app-desktop-visible">
+                        <svg width="9" height="24">
+                            <use xlink:href="./app-sprite.svg#arrow-left"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div slot="container-end">
+                    <button class="app-btn btn-slider btn-size-xl swiper-right app-desktop-visible">
+                        <svg width="9" height="24">
+                            <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                        </svg>
+                    </button>
+                </div>
+                <swiper-slide>
+                    {{> components/blog-thumb }}
+                </swiper-slide>
+                <swiper-slide>
+                    {{> components/blog-thumb }}
+                </swiper-slide>
+                <swiper-slide>
+                    {{> components/blog-thumb }}
+                </swiper-slide>
+                <swiper-slide>
+                    {{> components/blog-thumb }}
+                </swiper-slide>
+                <swiper-slide>
+                    {{> components/blog-thumb }}
+                </swiper-slide>
+                <swiper-slide>
+                    {{> components/blog-thumb }}
+                </swiper-slide>
+            </swiper-container>
+            <div class="app-section--footer app-section--footer--mt app-mobile-visible">
+                <a href="#" class="app-btn btn-size-m btn-secondary btn-full">
+                    <span>Все авто</span>
+                    <svg width="9" height="24">
+                        <use xlink:href="./app-sprite.svg#arrow-right"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

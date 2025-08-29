@@ -14,6 +14,7 @@
 @use "components/select";
 @use "components/input";
 @use "components/stock-thumb";
+@use "components/blog-thumb";
 @use "components/swiper-zoom";
 @use "components/cars-filter";
 @use "components/modal-fitlers-form";
@@ -34,6 +35,7 @@
 @use "sections/about-choice";
 @use "sections/about-banner";
 @use "sections/blog";
+@use "sections/blogs-slider";
 @use "sections/car-preview";
 @use "sections/car-description";
 @use "sections/car-conditions";
