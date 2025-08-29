@@ -1,3 +1,4 @@
+import "./parts/thumb-slider.js"
 import "./parts/default-slider.js"
 import "./parts/review-slider.js"
 import "./parts/banners-outdent.js"
