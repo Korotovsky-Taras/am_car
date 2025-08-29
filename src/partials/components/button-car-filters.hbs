@@ -5,9 +5,14 @@
 </div>
 <button class="app-btn btn-size-m btn-primary btn-full js-car-filters-button" data-modal="car-filters-modal">
     <span>Параметры авто</span>
-    <svg width="20" height="24">
-        <use xlink:href="./app-sprite.svg#settings"></use>
-    </svg>
+    <div class="app-btn__filter-icon ml-1">
+        <svg width="20" height="24" class="--icon-back">
+            <use xlink:href="./app-sprite.svg#settings"></use>
+        </svg>
+        <svg width="14" height="14" class="--icon-front">
+            <use xlink:href="./app-sprite.svg#check-circle-sm"></use>
+        </svg>
+    </div>
 </button>
 <script>
     document.addEventListener("DOMContentLoaded", function () {

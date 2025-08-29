@@ -168,3 +168,18 @@
         width: 100%;
     }
 }
+
+.app-btn__filter-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .--icon-front {
+        position: absolute;
+        right: -10px;
+        top: -4px
+    }
+}

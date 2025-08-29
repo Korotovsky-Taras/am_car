@@ -5,8 +5,9 @@
         <path fill="currentColor" d="M10.287 5.3a1 1 0 0 1 1.426 1.4l-6.875 7a1 1 0 0 1-1.426 0L.287 10.52a1 1 0 1 1 1.426-1.402l2.412 2.456 6.162-6.274z"/>
     </symbol>
 
-    <symbol viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg" id="check-circle-sm">
-        <path fill="currentColor" d="M7 2a7 7 0 1 1 0 14A7 7 0 0 1 7 2zm3.62 3.953a1 1 0 0 0-1.414.013L5.909 9.323l-1.11-1.13a1 1 0 0 0-1.427 1.402l1.823 1.856a1 1 0 0 0 1.427 0l4.01-4.084a1 1 0 0 0-.012-1.414z"/>
+    <symbol viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" id="check-circle-sm">
+        <rect width="14" height="14" rx="7" fill="#2A231E"/>
+        <path d="M9.91927 4.66675L5.90885 8.75008L4.08594 6.89402" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
     <symbol viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg" id="close-sm">
